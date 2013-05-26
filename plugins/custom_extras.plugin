@@ -1,0 +1,9 @@
+[Core]
+Name = extras
+Module = extra_directives
+
+[Documentation]
+Author = Dhruv Baldawa
+Version = 0.1
+Website = http://www.dhruvb.com
+Description = Added some extra directives for custom processing.
