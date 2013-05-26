@@ -1,0 +1,69 @@
+.. link:
+.. description:
+.. tags: technical stuff, tutorial, google+, oauth, google plus, php, python
+.. date: 2013/09/20 15:32:54
+.. title: [Tutorial] Using OAuth2.0 with Google+
+.. slug: tutorial-using-oauth-with-google-plus
+
+.. class:: align-center
+
+    .. youtube:: IpdKRvgqxdo
+        :width: 640
+        :height: 390
+
+The initial API for Google+ was released on 15th September, 2011. But, this API currently supports only public data, and user data (which can be accessed from any web application or web site). However, there no support for building Google+ applications. It follows a RESTful API design and provides OAuth2.0 for authentication.
+
+.. TEASER_END
+
+These are some of the important links which contain important information regarding the API:
+
+1. `Google Developers <http://developers.google.com/>`_
+2. `Google+ API Documentation <http://developers.google.com/+/api/>`_
+3. `Google+ OAuth Documentation <http://developers.google.com/+/api/oauth>`_
+4. `Google OAuth2.0 Documentation <http://code.google.com/apis/accounts/docs/OAuth2.html>`_
+5. `OAuth on Wikipedia <http://en.wikipedia.org/wiki/OAuth>`_
+
+However, Google does provide with API libraries for connecting to Google+, but there is a simple and light-weight method using just URL and JSON parsing libraries (curl for PHP and urllib2, json for Python). We will see into this.
+
+**OAuth Basics**
+
+We will however not dive into details of OAuth authentication, but will summarize the entire process of authorization into very basic steps. Let's consider **you(developer)** needs to access the data of user logging into your website from any **service(Google+)**.
+
+1. You need to **authorize** with Google+ and get the **client id, client secret and API key**. This is a one-time step, the client key, client secret and API key will be used by YOU for **further communications** with Google+.
+2. When a user logs into your website, if he/she wants you to access their Google+ data, the Google+ **server is contacted** using YOUR **client id**, and the **respective permissions that are required** are showed to the user, it is then when the user can either **allow or disallow** YOU to access his/her data.
+3. Once the user **allows** you, then Google+ provides an **access token** for that particular user, using this token and your client key, secret and API key collectively you can then **access the data**.
+
+**Using Google+ API**
+
+**Step 1: Getting yourself authorized.**
+
+You need to goto Google API Console (https://code.google.com/apis/console/)
+
+And Create a new project (existing projects will do).
+
+.. post-image:: /images/gplus/create-project.png
+
+**Step 2: Enable the Google+ API**
+
+.. post-image:: /images/gplus/google-api.png
+
+**Step 3:** You can then click on **API Access** link in the menu, and access your **client id, secret and API key**. Specify a **redirect uri** to YOUR website.
+
+**Step 4:** Authorization. Use the following link and replace the {client id} and {redirect uri} with your **client id and redirect uri.**
+https://accounts.google.com/o/oauth2/auth?client_id={client id}&redirect_uri={redirect uri}&scope=https://www.googleapis.com/auth/plus.me&response_type=token
+
+**Step 5:** Your website is now good to go. Once, you provide the above link, it will take the user to the permissions page and will be redirected to the redirect uri with the **access token**, if the user grants access. The access token is usually something like this: https://{redirect uri}#access_token={access token}&token_type=Bearer&expires_in=3600
+
+**Step 6:** Now, this access token has to be used with each request to Google+ and get the response. For example,
+https://www.googleapis.com/plus/v1/people/{user id or "me"}?access_token={access token}
+https://www.googleapis.com/plus/v1/people/me/activities/public?pageToken={page token}&access_token={access_token}
+https://www.googleapis.com/plus/v1/activities/{activity id}?api_key={api key}
+
+Note: You can use "**me**" (without quotes) in {user id} to get data related to the current logged in user.
+
+**Step 7:** Everything done. Just read the documentation from the websites given above for advanced usage. Or you can also view the above video for a rough overview.
+
+**Other Resources:**
+
+* **Code Samples:** `GitHub <https://github.com/dhruvbaldawa/Tutorials/tree/master/google+>`_
+* **Presentation:** `Scribd <http://www.scribd.com/doc/65747648/Using-Google-API-with-Python-and-PHP>`_

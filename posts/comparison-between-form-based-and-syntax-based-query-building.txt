@@ -1,0 +1,31 @@
+.. link:
+.. description:
+.. tags: specialized syntax, search system, technical stuff
+.. date: 2011/04/02 14:30:47
+.. title: Comparison between form based and syntax based query building
+.. slug: comparison-between-form-based-and-syntax-based-query-building
+
+Many friends of mine have questions and doubts regarding the “Specialized Syntax based Query Building” system. They would, however, prefer the “Form-based Query Building”. Why do we need such a system, when the conventional system is working fine ? Why does the user have to type a “Specialized Syntax”, can’t he just use SQL ? and many more questions arise. Lets consider the following scenario :
+
+.. TEASER_END
+
+*“A local newsletter-based company has to keep a check on its members, their subscription details. But, they have no system in-place. But, now with the help of newly recruited young staff, they have started to grow. As their enterprise is expanding, they have now felt the need of a Members management system. The management staff, however, is a genius in management, but they are not so good at SQL or databases. So, they call their friend, who is also a developer to get the job done for them.”*
+
+.. post-image:: /images/ssql/comparison01.png
+
+The friend now, is lazy enough to start coding from scratch. He gets a Web Application framework, adds the required functionalities,  tweaks them. Builds a form-based query system and the system is now good to go. The management likes the system, and they loved using it. Ahh !! But, why is the querying so restrictive “Why can’t I sort the data ? Why can’t I get the members of users in a country ? Where can I search for number of males in a state ?”. The developer is now left with two methods :
+
+**Method 1:**
+
+.. post-image:: /images/ssql/comparison02.png
+
+*“This system, is fairly simple to use. Not so good in terms of User Experience, but it works ! Another change or another need in the system, would again require coding the form and checking all the form elements present, iterating over them, checking conditions. As the number of entities or conditions required would increase, so will the complexity of the code.”*
+
+**Method 2:**
+
+.. post-image:: /images/ssql/comparison03.png
+
+*“This system, I have coded this plugin once. OK, it is based on a files, which contain the metadata required to build database queries. Also, the syntax file is defined. I don’t have to code again. If the system changes, its only the file that changes. It is simple for user to build queries with the suggestions given on runtime, good UX. That is cool.”*
+
+Let the developer decide, which method to choose !
+
