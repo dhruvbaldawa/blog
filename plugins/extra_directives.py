@@ -66,5 +66,59 @@ class PostImageBlock(Directive):
         ), format='html')]
 
 
+# Copyright (c) 2012 Roberto Alsina y otros.
+
+# Permission is hereby granted, free of charge, to any
+# person obtaining a copy of this software and associated
+# documentation files (the "Software"), to deal in the
+# Software without restriction, including without limitation
+# the rights to use, copy, modify, merge, publish,
+# distribute, sublicense, and/or sell copies of the
+# Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice
+# shall be included in all copies or substantial portions of
+# the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY
+# KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+# WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+# PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS
+# OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+# OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+# OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+# SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+CODE = """\
+<iframe src="http://www.youtube.com/embed/{yid}?rel=0&amp;hd=1&amp;wmode=transparent;frameborder=0"
+></iframe>"""
+
+
+class Youtube(Directive):
+    """ Restructured text extension for inserting youtube embedded videos
+
+    Usage:
+        .. youtube:: lyViVmaBQDg
+    """
+    has_content = True
+    required_arguments = 1
+
+    def run(self):
+        self.check_content()
+        options = {
+            'yid': self.arguments[0],
+        }
+        options.update(self.options)
+        return [nodes.raw('', CODE.format(**options), format='html')]
+
+    def check_content(self):
+        if self.content:
+            raise self.warning("This directive does not accept content. The "
+                               "'key=value' format for options is deprecated, "
+                               "use ':key: value' instead")
+
+
+directives.register_directive('youtube', Youtube)
 directives.register_directive('image-link', ImageLinkBlock)
 directives.register_directive('post-image', PostImageBlock)
