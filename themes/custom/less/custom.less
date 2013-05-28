@@ -1,0 +1,75 @@
+@import "bootstrap/less/bootstrap.less";
+@import "bootswatch.less";
+@import "variables.less";
+
+
+/*@import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,400italic,600,600italic);*/
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,600,600italic);
+
+/* Main Styles */
+body {
+    /*font-family: "Titillium Web","Helvetica Neue",Helvetica,Arial,sans-serif;*/
+    font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 15px;
+    color: #2F4F4F;
+}
+
+a {
+    color: #4682B4;
+}
+
+h1 {
+    font-size: 42px;
+}
+
+.navbar .nav>li>a:hover {
+    color: white;
+    background-color: black;
+}
+
+/* Custom stuff */
+.content {
+    #grid > .fluid > .span(8) !important;
+}
+
+.sidebar{
+    #grid > .fluid > .span(4) !important;
+
+    border-left: 1px solid;
+    background-color: lightgray;
+}
+
+/* Nikola related */
+.postbox p, ul, ol {
+    text-align: justify;
+}
+
+.post-details {
+    text-align: right;
+}
+
+/*Flex video*/
+.flex-video {
+    position: relative;
+    padding-top: 25px;
+    padding-bottom: 67.5%;
+    height: 0;
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+
+.flex-video.widescreen { padding-bottom: 57.25%; }
+.flex-video.vimeo { padding-top: 0; }
+.flex-video iframe,
+.flex-video object,
+.flex-video embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@media only screen and (max-device-width: 800px), only screen and (device-width: 1024px) and (device-height: 600px), only screen and (width: 1280px) and (orientation: landscape), only screen and (device-width: 800px), only screen and (max-width: 767px) {
+    .flex-video { padding-top: 0; }
+}
