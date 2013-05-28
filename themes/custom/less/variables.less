@@ -28,17 +28,19 @@
 @orange:                #FF7F00;
 @pink:                  #CC99CC;
 @purple:                #7a43b6;
+@linkBlue:              #4682B4; // changed
+@textGray:              #2f4f4f; // changed
 
 
 // Scaffolding
 // -------------------------
 @bodyBackground:        @white;
-@textColor:             @grayDark;
+@textColor:             @textGray; // changed
 
 
 // Links
 // -------------------------
-@linkColor:             @textColor;
+@linkColor:             @linkBlue; // Changed
 @linkColorHover:        @linkColor;
 
 
@@ -48,8 +50,8 @@
 @serifFontFamily:       Georgia, "Times New Roman", Times, serif;
 @monoFontFamily:        Menlo, Monaco, Consolas, "Courier New", monospace;
 
-@baseFontSize:          14px;
-@baseFontFamily:        @serifFontFamily;
+@baseFontSize:          15px;
+@baseFontFamily:        "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
 @baseLineHeight:        20px;
 @altFontFamily:         @sansFontFamily;
 
@@ -187,10 +189,10 @@
 
 @navbarText:                      @textColor;
 @navbarLinkColor:                 @headingsColor;
-@navbarLinkColorHover:            @headingsColor;
-@navbarLinkColorActive:           @headingsColor;
-@navbarLinkBackgroundHover:       transparent;
-@navbarLinkBackgroundActive:      transparent;
+@navbarLinkColorHover:            @white; // changed
+@navbarLinkColorActive:           @linkBlue; // changed
+@navbarLinkBackgroundHover:       @black; // changed
+@navbarLinkBackgroundActive:      @black; // changed
 
 @navbarBrandColor:                @navbarLinkColor;
 
@@ -199,7 +201,7 @@
 @navbarInverseBackgroundHighlight:       #222222;
 @navbarInverseBorder:                    #252525;
 
-@navbarInverseText:                      @grayLight;
+@navbarInverseText:                      @black;
 @navbarInverseLinkColor:                 @grayLight;
 @navbarInverseLinkColorHover:            @white;
 @navbarInverseLinkColorActive:           @navbarInverseLinkColorHover;
