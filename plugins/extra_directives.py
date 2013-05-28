@@ -91,8 +91,8 @@ class PostImageBlock(Directive):
 # SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 CODE = """\
-<iframe src='http://www.youtube.com/embed/{yid}?rel=0&amp;hd=1&amp;wmode=transparent;frameborder="0"'
-></iframe>"""
+<iframe src="http://www.youtube.com/embed/{yid}?rel=0&amp;hd=1&amp;wmode=transparent"
+style="border: 0;"></iframe>"""
 
 
 class Youtube(Directive):

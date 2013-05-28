@@ -13,7 +13,7 @@ BLOG_AUTHOR = "Dhruv Baldawa"
 BLOG_TITLE = "Dhruv Baldawa's Web Log"
 # This is the main URL for your site. It will be used
 # in a prominent link
-SITE_URL = "http://www.dhruvb.com/"
+SITE_URL = "http://www.dhruvb.com"
 # This is the URL where nikola's output will be deployed.
 # If not set, defaults to SITE_URL
 # BASE_URL = "http://nikola.ralsina.com.ar"
@@ -318,7 +318,7 @@ CONTENT_FOOTER = CONTENT_FOOTER.format(email=BLOG_EMAIL,
 
 # Enable Addthis social buttons?
 # Defaults to true
-# ADD_THIS_BUTTONS = True
+ADD_THIS_BUTTONS = False
 
 # Modify the number of Post per Index Page
 # Defaults to 10
