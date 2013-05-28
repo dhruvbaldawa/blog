@@ -1,0 +1,3 @@
+[submodule "themes/custom/less/bootstrap"]
+	path = themes/custom/less/bootstrap
+	url = git@github.com:twitter/bootstrap.git
