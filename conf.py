@@ -56,6 +56,7 @@ TRANSLATIONS = {
 # You should provide a key-value pair for each used language.
 SIDEBAR_LINKS = {
     DEFAULT_LANG: (
+        ('https://www.github.com/dhruvbaldawa', 'Code'),
         ('/archive.html', 'Archives'),
         ('/categories/index.html', 'Tags'),
         ('/rss.xml', 'RSS'),
@@ -233,7 +234,7 @@ CREATE_MONTHLY_ARCHIVE = True
 # INDEXES_PAGES = ""  # If this is empty, the default is 'old posts page %d' translated
 
 # Name of the theme to use.
-THEME = 'site_journal'
+THEME = 'custom'
 
 # Color scheme to be used for code blocks. If your theme provide "assets/css/code.css" this
 # is ignored.
