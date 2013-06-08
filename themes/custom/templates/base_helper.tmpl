@@ -67,6 +67,7 @@
         <script src="/assets/js/slides.min.jquery.js" type="text/javascript"></script>
     %endif
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5041200b16ca47ea"></script>
+    <script type="text/javascript" src="http://easydate.parshap.com/files/jquery.easydate-0.2.4.min.js"></script>
 </%def>
 
 
@@ -94,4 +95,25 @@
             <a href="${_link("index", None, langname)}">${messages("LANGUAGE", langname)}</a>
         %endif
     %endfor
+</%def>
+
+
+<%def name="social_icons()">
+    <%
+        social_profiles = {
+            'facebook': 'http://www.facebook.com/baldawa',
+            'twitter': 'http://www.twitter.com/dhruvbaldawa',
+            'google': 'https://plus.google.com/u/0/108624147239735557968/',
+            'linkedin': 'http://in.linkedin.com/in/dhruvbaldawa',
+            'flickr': 'http://www.flickr.com/photos/dhruvbaldawa/',
+            'mail': 'https://docs.google.com/forms/d/1no_NGknomUFgiMd_6Al5fgUKSXMaSjC-plyOby8uwko/viewform',
+        }
+    %>
+    <div class="social-icons">
+        % for profile, link in social_profiles.items():
+            <a href="${link}" class="social-icon" target="_blank">
+                <img src="/images/social_icons/${profile}.png" />
+            </a>
+        %endfor
+    </div>
 </%def>

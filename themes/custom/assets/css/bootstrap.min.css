@@ -894,7 +894,10 @@ legend{border-bottom:2px solid #eeeeee;font-family:"News Cycle","Arial Narrow Bo
 .modal-footer{border-top:none;background:transparent;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;}
 .close,.close:hover{border-bottom:none;}
 @media (max-width:768px){div.subnav{height:auto;}div.subnav .nav>li.active>a{border-top:none;} div.subnav .nav>li:hover>a,div.subnav .nav>li:first-child:hover>a,div.subnav .nav>li.active:hover>a,div.subnav .nav>li.dropdown.open .dropdown-toggle,div.subnav .nav>li.dropdown.open .dropdown-toggle:hover{background-color:#eeeeee;} .nav-tabs .open .dropdown-toggle,.nav-pills .open .dropdown-toggle,.nav>li.dropdown.open.active>a:hover{border-color:#e5e5e5;}}@media (max-width:979px){.nav-collapse .nav>li>a:hover,.nav-collapse .nav>li>a:focus,.nav-collapse .dropdown-menu a:hover,.nav-collapse .dropdown-menu a:focus{background-color:#000000 !important;color:#ffffff !important;}}@media (min-width:768px) and (max-width:979px){.span12-tablet{width:100% !important;*width:99.94680851063829% !important;margin-left:0 !important;}}
-.sidemenu{border-left:#000 2px solid;background-color:lightgray;width:31.914893617021278%;*width:31.861702127659576%;}
+.sidemenu{padding:5px;}.sidemenu hr{margin:0px;}
+.sidemenu h4.media-heading{padding-top:0px;}
+.sidemenu .social-icon img{width:25px;margin-left:-5px;}
+.sidemenu .social-icon:first-child img{margin-left:0;}
 .postbox p,ul,ol{text-align:justify;}
 .post-details{text-align:right;}
 .flex-video{position:relative;padding-top:25px;padding-bottom:67.5%;height:0;margin-bottom:16px;overflow:hidden;}

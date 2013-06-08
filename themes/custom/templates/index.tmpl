@@ -14,7 +14,7 @@
         <div class="post-details">
             ${helper.post_social(post)}
             <small>
-                 ${messages("Posted")}: <time class="published" datetime="${post.date.isoformat()}">${post.formatted_date(date_format)}</time>
+                 ${messages("Posted")}: <time class="published easydate" datetime="${post.date.isoformat()}">${post.formatted_date(date_format)}</time>
                   | by ${blog_author}
             </small></div>
         </div>

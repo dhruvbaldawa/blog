@@ -52,11 +52,22 @@ ${set_locale(lang)}
     <div class="row-fluid">
         <div class="span2"></div>
         <div class="span8 span12-tablet">
-            <div class="row-fluid">
+            <div class="row">
                 <div class="content span8 span12-tablet">
                     <%block name="content"></%block>
                 </div>
-                <div class="sidemenu span4 span12-tablet">Test</div>
+                <div class="sidemenu span4 span12-tablet">
+                    <%block name="sidebar">
+                        <div class="media">
+                            <img class="pull-left thumbnail" src="http://www.gravatar.com/avatar/0b7c937b3071a76c73c929507d484fdb" />
+                            <div class="media-body">
+                                <h4 class="media-heading">Dhruv Baldawa</h4>
+                                <h5 class="mute">Mumbai, India</h5>
+                                ${social_icons()}
+                            </div>
+                        </div>
+                    </%block>
+                </div>
             </div>
         </div>
     </div>
@@ -67,5 +78,9 @@ ${set_locale(lang)}
 </div>
 ${late_load_js()}
 ${analytics}
-    <script type="text/javascript">jQuery(".colorbox").colorbox({maxWidth: "100%"});</script>
+    <script type="text/javascript">jQuery(".colorbox").colorbox({maxWidth: "100%"});
+    jQuery(function($) {
+        $(".easydate").easydate();
+    });
+    </script>
 </body>

@@ -22,9 +22,24 @@
 }
 
 .sidemenu{
-    border-left: #000 2px solid;
-    background-color: lightgray;
-    #grid > .fluid > .span(4);
+    padding: 5px;
+
+    hr {
+        margin: 0px;
+    }
+
+    h4.media-heading {
+        padding-top: 0px;
+    }
+
+    .social-icon img {
+        width: 25px;
+        margin-left: -5px ; /* for proper spacing between the icons */
+    }
+
+    .social-icon:first-child img {
+        margin-left: 0; /* for resetting the spacing offset for first */
+    }
 }
 
 /* Nikola related */
