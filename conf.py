@@ -58,7 +58,7 @@ SIDEBAR_LINKS = {
     DEFAULT_LANG: (
         ('https://www.github.com/dhruvbaldawa', 'Code'),
         ('/archive.html', 'Archives'),
-        ('/categories/index.html', 'Tags'),
+        ('/tags/index.html', 'Tags'),
         ('/rss.xml', 'RSS'),
     ),
 }
@@ -136,17 +136,17 @@ post_compilers = {
 # output / TRANSLATION[lang] / TAG_PATH / index.html (list of tags)
 # output / TRANSLATION[lang] / TAG_PATH / tag.html (list of posts for a tag)
 # output / TRANSLATION[lang] / TAG_PATH / tag.xml (RSS feed for a tag)
-# TAG_PATH = "categories"
+TAG_PATH = "tags"
 
 # If TAG_PAGES_ARE_INDEXES is set to True, each tag's page will contain
 # the posts themselves. If set to False, it will be just a list of links.
-TAG_PAGES_ARE_INDEXES = False
+TAG_PAGES_ARE_INDEXES = True
 
 # Final location is output / TRANSLATION[lang] / INDEX_PATH / index-*.html
 # INDEX_PATH = ""
 
 # Create per-month archives instead of per-year
-CREATE_MONTHLY_ARCHIVE = True
+CREATE_MONTHLY_ARCHIVE = False
 # Final locations for the archives are:
 # output / TRANSLATION[lang] / ARCHIVE_PATH / ARCHIVE_FILENAME
 # output / TRANSLATION[lang] / ARCHIVE_PATH / YEAR / index.html
@@ -176,7 +176,7 @@ CREATE_MONTHLY_ARCHIVE = True
 # "rsync -rav output/* joe@my.site:/srv/www/site"
 # And then do a backup, or ping pingomatic.
 # To do manual deployment, set it to []
-# DEPLOY_COMMANDS = []
+DEPLOY_COMMANDS = []
 
 # Where the output site should be located
 # If you don't use an absolute path, it will be considered as relative
@@ -266,16 +266,20 @@ INDEX_TEASERS = True
 # A HTML fragment describing the license, for the sidebar. Default is "".
 # I recommend using the Creative Commons' wizard:
 # http://creativecommons.org/choose/
-# LICENSE = """
-# <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/ar/">
-# <img alt="Creative Commons License BY-NC-SA"
-# style="border-width:0; margin-bottom:12px;"
-# src="http://i.creativecommons.org/l/by-nc-sa/2.5/ar/88x31.png"></a>"""
+
+LICENSE = """
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US
+"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><br />This work by <a
+xmlns:cc="http://creativecommons.org/ns#" href="http://www.dhruvb.com/"
+property="cc:attributionName" rel="cc:attributionURL">Dhruv Baldawa</a> is
+licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License
+</a>.
+"""
 
 # A small copyright notice for the page footer (in HTML).
 # Default is ''
-CONTENT_FOOTER = 'Contents &copy; {date} <a href="mailto:{email}">{author}</a> - Powered by <a href="http://nikola.ralsina.com.ar">Nikola</a>'
-CONTENT_FOOTER = CONTENT_FOOTER.format(email=BLOG_EMAIL,
+CONTENT_FOOTER = '{license} <br /> &copy; {date} <a href="http://www.dhruvb.com/">{author}</a> - Powered by <a href="http://nikola.ralsina.com.ar">Nikola</a>'
+CONTENT_FOOTER = CONTENT_FOOTER.format(license=LICENSE,
                                        author=BLOG_AUTHOR,
                                        date=time.gmtime().tm_year)
 
@@ -283,7 +287,7 @@ CONTENT_FOOTER = CONTENT_FOOTER.format(email=BLOG_EMAIL,
 # http://disqus.com, and set DISQUS_FORUM to the short name you selected.
 # If you want to disable comments, set it to False.
 # Default is "nikolademo", used by the demo sites
-# DISQUS_FORUM = "nikolademo"
+DISQUS_FORUM = "dhruvblog"
 
 # Create index.html for story folders?
 # STORY_INDEX = False
@@ -295,7 +299,8 @@ CONTENT_FOOTER = CONTENT_FOOTER.format(email=BLOG_EMAIL,
 # If a link ends in /index.html, drop the index.html part.
 # http://mysite/foo/bar/index.html => http://mysite/foo/bar/
 # Default = False
-# STRIP_INDEX_HTML = False
+STRIP_INDEX_HTML = True
+PRETTY_URLS = True
 
 # Do you want a add a Mathjax config file?
 # MATHJAX_CONFIG = ""
@@ -369,7 +374,21 @@ ADD_THIS_BUTTONS = False
 # EXTRA_HEAD_DATA = ""
 # Google analytics or whatever else you use. Added to the bottom of <body>
 # in the default template (base.tmpl).
-# ANALYTICS = ""
+ANALYTICS = """
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-6974857-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+"""
 
 # The possibility to extract metadata from the filename by using a
 # regular expression.
@@ -410,7 +429,7 @@ ADD_THIS_BUTTONS = False
 # If you want to use formatted post time in W3C-DTF Format(ex. 2012-03-30T23:00:00+02:00),
 # set timzone if you want a localized posted date.
 #
-# TIMEZONE = 'Europe/Zurich'
+TIMEZONE = 'Asia/Kolkata'
 
 # If webassets is installed, bundle JS and CSS to make site loading faster
 # USE_BUNDLES = True
