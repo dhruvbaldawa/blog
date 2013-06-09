@@ -18,7 +18,9 @@ SITE_URL = "http://www.dhruvb.com"
 # If not set, defaults to SITE_URL
 # BASE_URL = "http://nikola.ralsina.com.ar"
 BLOG_EMAIL = "contact@dhruvb.com"
-BLOG_DESCRIPTION = "tidbits from a ludicrous mind"
+BLOG_DESCRIPTION = "This is a blog where I write stuff about the things I do: \
+travelling, writing and coding. Mostly, I work with Python, but I play with \
+whole lot of other stuff too."
 TEMPLATE_ENGINE = 'mako'
 
 # Nikola is multilingual!
