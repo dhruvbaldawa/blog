@@ -13,10 +13,10 @@ BLOG_AUTHOR = "Dhruv Baldawa"
 BLOG_TITLE = "Dhruv Baldawa's Web Log"
 # This is the main URL for your site. It will be used
 # in a prominent link
-SITE_URL = "http://www.dhruvb.com"
+SITE_URL = "http://www.dhruvb.com/blog"
 # This is the URL where nikola's output will be deployed.
 # If not set, defaults to SITE_URL
-# BASE_URL = "http://nikola.ralsina.com.ar"
+BASE_URL = "http://www.dhruvb.com/blog"
 BLOG_EMAIL = "contact@dhruvb.com"
 BLOG_DESCRIPTION = "This is a blog where I write stuff about the things I do: \
 travelling, writing and coding. Mostly, I work with Python, but I play with \
@@ -257,10 +257,10 @@ DATE_FORMAT = '%a, %d %b %Y %H:%M:%S %z'
 # Used for create favicon link like this:
 # <link rel="name" href="file" sizes="size"/>
 # about favicons, see: http://www.netmagazine.com/features/create-perfect-favicon
-# FAVICONS = {
-#     ("icon", "/favicon.ico", "16x16"),
-#     ("icon", "/icon_128x128.png", "128x128"),
-# }
+FAVICONS = {
+    ("icon", "/favicon.ico", "16x16"),
+    # ("icon", "/icon_128x128.png", "128x128"),
+}
 
 # Show only teasers in the index pages? Defaults to False.
 INDEX_TEASERS = True
