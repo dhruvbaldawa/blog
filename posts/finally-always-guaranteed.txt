@@ -1,9 +1,9 @@
 .. link:
 .. description:
 .. tags: python, technical stuff
-.. date: 2013/06/13 11:36:26
-.. title: finally always returns
-.. slug: finally-always-returns
+.. date: 2013/06/13 12:55:26
+.. title: finally always guaranteed
+.. slug: finally-always-guaranteed
 
 Let's start off with a question. Given the following code sample:
 
@@ -23,7 +23,7 @@ What do you think the call to ``foo()`` will return ?
 
 The correct answer is ``False``.
 
-I encountered this while working on one of my projects, and the above control structure caused couple of tests to fail, because I was under the impression that a ``return`` statement will return from the function and the ``finally`` block won't be executed at all, but that is not how Python works :-) !
+I encountered this while working on one of my projects, the above control structure caused couple of tests to fail, because I was under the impression that a ``return`` statement will return from the function and the ``finally`` block won't be executed at all, but that is not how Python works :-) !
 
 What is the problem ?
 ---------------------
@@ -40,6 +40,8 @@ The Python Official Documentation [1]_ says,
 
 So, we now know the reason for this behavior. The ``finally`` block is called after we call ``return`` in ``try``. Hence, we get the return value of ``False`` instead of ``True``.
 
+**Bottomline:** The ``finally`` statement is **guaranteed** to be executed.
+
 How do we solve this ?
 ----------------------
 
@@ -55,7 +57,7 @@ Just use ``else``:
         else:
             return False
 
-The ``else`` block is only executed if you **reach the end** of the ``try``
+The ``else`` block is only executed when we **reach the end** of the ``try``
 block.
 
 .. [1] http://docs.python.org/2/reference/compound_stmts.html#the-try-statement
