@@ -95,6 +95,7 @@ SIDEBAR_LINKS = {
 post_pages = (
     ("posts/*.txt", "posts", "post.tmpl", True),
     ("stories/*.txt", "stories", "story.tmpl", False),
+    ("presentations/*.txt", "presentations", "presentation.tmpl", False)
 )
 
 # One or more folders containing files to be copied as-is into the output.

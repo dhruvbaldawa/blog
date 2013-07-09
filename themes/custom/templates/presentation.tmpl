@@ -1,0 +1,24 @@
+<!doctype html>
+<%namespace file="presentation_helper.tmpl" import="*"/>
+<html lang="en">
+    <head>
+        ${html_head()}
+        <%block name="extra_head">
+            <meta name="description" content="${post.description()}">
+        </%block>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+            <%block name="slides">
+                ${post.text()}
+            </%block>
+            </div>
+        </div>
+        <script src="/reveal/lib/js/head.min.js"></script>
+        <script src="/reveal/js/reveal.min.js"></script>
+        <script>
+            ${reveal_settings()}
+        </script>
+    </body>
+</html>

@@ -53,7 +53,7 @@ class PostImageBlock(Directive):
     @classmethod
     def build_attributes(cls, attrs):
         ''' makes a string out of a dictionary of attributes '''
-        return ' '.join(("{}={}".format(k, v) for k, v in attrs.iteritems()))
+        return ' '.join(('{}="{}"'.format(k, v) for k, v in attrs.iteritems()))
 
     def run(self):
         """ Required by the Directive interface. Create docutils nodes """
@@ -65,6 +65,30 @@ class PostImageBlock(Directive):
             self.build_attributes(self.IMG_DEFAULT_ATTRIBUTES),
         ), format='html')]
 
+
+class HtmlTag(Directive):
+    optional_arguments = 10
+    has_content = True
+    tag = 'div'
+
+    CODE = '\
+    <{0} {1}>{2}</{0}>'
+
+    @classmethod
+    def build_attributes(cls, attrs):
+        ''' makes a string out of a dictionary of attributes '''
+        return ' '.join(('{}="{}"'.format(k, v) for k, v in attrs.iteritems()))
+
+    def run(self):
+        return [nodes.raw('', self.CODE.format(
+            self.tag,
+            self.build_attributes(self.options),
+            '\n'.join(self.content),
+        ), format='html')]
+
+
+class SectionTag(HtmlTag):
+    tag = 'section'
 
 # Copyright (c) 2012 Roberto Alsina y otros.
 
@@ -122,3 +146,4 @@ class Youtube(Directive):
 directives.register_directive('youtube', Youtube)
 directives.register_directive('image-link', ImageLinkBlock)
 directives.register_directive('post-image', PostImageBlock)
+directives.register_directive('section', SectionTag)
