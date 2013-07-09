@@ -1,3 +1,6 @@
 [submodule "themes/custom/less/bootstrap"]
 	path = themes/custom/less/bootstrap
 	url = git@github.com:twitter/bootstrap.git
+[submodule "files/reveal"]
+	path = files/reveal
+	url = git@github.com:hakimel/reveal.js.git
