@@ -302,7 +302,7 @@ DISQUS_FORUM = "dhruvblog"
 # If a link ends in /index.html, drop the index.html part.
 # http://mysite/foo/bar/index.html => http://mysite/foo/bar/
 # Default = False
-STRIP_INDEX_HTML = True
+STRIP_INDEXES = True
 PRETTY_URLS = True
 
 # Do you want a add a Mathjax config file?
