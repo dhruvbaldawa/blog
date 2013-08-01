@@ -1,0 +1,51 @@
+.. link:
+.. description:
+.. tags: technical stuff, javascript, weekend project, coffeescript, node.js, express.js, jade, html5
+.. date: 2013/08/01 11:16:24
+.. title: [Weekend Project] DropHere
+.. slug: weekend-project-drophere
+
+.. image:: /images/drophere/drophere.jpg
+    :class: post-main-image img-polaroid align-center
+
+A few weeks back, I wrote `DropHere
+<http://www.github.com/dhruvbaldawa/drophere>`_. Its written using `CoffeeScript
+<http://coffeescript.org/>`_, `Node.js <http://nodejs.org/>`_ and `Express.js
+<http://expressjs.com/>`_ and some HTML5 Drag and Drop APIs.
+
+I created this project as a simple drag-and-drop file uploading service. It
+uploads files to relevant file uploading service. For example, if you drop an
+image file, it will be uploaded to `Imgur <http://www.imgur.com>`_ and similarly
+text files will be uploaded to `Pastebin <http://www.pastebin.com>`_.
+
+You can check out the live demo over `here <http://drophere.herokuapp.com>`_.
+
+.. TEASER_END
+
+The main reason behind this particular project was that often I need to share
+code snippets and screenshots with colleagues, friends and then I have to take a
+screenshot and then go upload to the relevant service or just mail it. Being the
+kind of lazy I am, I thought of build this app and learning some new stuff on
+the way :).
+
+This was more of a learning project for me, trying to build complete javascript
+applications for a Python developer like was a completely different experience,
+a journey to explore CoffeeScript, Node.js and Test-driven development(TDD).
+
+**How to use**
+
+1. Go to http://drophere.herokuapp.com/.
+2. Drag *any image or text* file from your computer.
+3. Drop it into the browser.
+4. Watch it upload and generate the link.
+
+.. image:: /images/drophere/progress.jpg
+    :class: post-main-image img-polaroid align-center
+
+I would love to hear suggestions and feedback on this project.
+
+Links
+=====
+
+Source on github:
+    http://www.github.com/dhruvbaldawa/drophere

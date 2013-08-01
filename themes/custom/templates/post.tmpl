@@ -8,7 +8,6 @@ ${helper.twitter_card_information(post)}
 <%block name="content">
     <div class="postbox">
     ${helper.html_title()}
-    <hr>
     <small>
         ${messages("Posted")}: <time class="published easydate" datetime="${post.date.isoformat()}">${post.formatted_date(date_format)}</time>
         ${helper.html_translations(post)}

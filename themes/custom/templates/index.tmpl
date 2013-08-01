@@ -5,8 +5,7 @@
 <%block name="content">
     % for post in posts:
         <div class="postbox">
-        <h1><a href="${post.permalink()}">${post.title()}</a></h1>
-        <hr>
+        <p class="post-title"><a href="${post.permalink()}">${post.title()}</a></p>
         ${post.text(teaser_only=index_teasers)}
         % if not post.meta('nocomments'):
             ${disqus.html_disqus_link(post.permalink()+"#disqus_thread", post.base_path)}
