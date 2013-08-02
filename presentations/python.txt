@@ -1,0 +1,354 @@
+.. link:
+.. description:
+.. tags:
+.. date: 2011/03/29 11:04:30
+.. title: Python
+.. slug: python
+
+.. section::
+
+    <h1>Python</h1>
+    <p>by <a href="http://www.dhruvb.com/blog/" target="_blank">Dhruv Baldawa</a> / <a href="http://www.twitter.com/dhruvbaldawa" target="_blank">@dhruvbaldawa</a>
+
+.. section::
+
+    <h1>Show me the code!</h1>
+
+.. section::
+
+    <h2>Hello World</h2>
+
+    <h4>Python</h4>
+    <pre><code data-trim class="python">
+        print "Hello World"
+    </code></pre>
+
+    <div class="fragment roll-in">
+        <h4>C++</h4>
+        <pre><code data-trim class="cpp">
+    #include &lt;iostream&gt;
+    using namespace std;
+    int main (int argc, char** argv)
+    {
+        cout &lt;&lt; "Hello World!";
+        return 0;
+    }
+        </code></pre>
+    </div>
+
+    <div class="fragment roll-in">
+        <h4>Java</h4>
+        <pre><code data-trim class="java">
+    public class HelloWorld {
+        public static void main(String[] args) {
+            System.out.println("Hello World");
+        }
+    }
+
+        </code></pre>
+    </div>
+
+.. section::
+
+    <h2>Reading a file</h2>
+
+    <h4>Python</h4>
+    <pre><code data-trim class="python">
+    for line in open("filename"):
+        print line
+    </code></pre>
+
+    <div class="fragment roll-in">
+        <h4>C++</h4>
+        <pre><code data-trim class="cpp">
+    #include &lt;iostream&gt;
+    #include &lt;fstream&gt;
+    #include &lt;string&gt;
+    using namespace std;
+    int main () {
+        string line;
+        ifstream myfile ("filename");
+        if (myfile.is_open()) {
+            while ( myfile.good() ) {
+                getline(myfile,line);
+                cout &lt;&lt; line &lt;&lt; endl;
+            }
+            myfile.close();
+        }
+        else cout &lt;&lt; "Unable to open file";
+        return 0;
+    }
+    </code></pre>
+    </div>
+
+.. section::
+
+    <h2>Reading a file</h2>
+    <h4>Java</h4>
+    <pre><code data-trim class="java">
+    import java.io.*;
+    class FileRead {
+        public static void main(String args[]){
+            try{
+                FileInputStream fstream = new
+                FileInputStream("textfile.txt");
+                DataInputStream in = new
+                DataInputStream(fstream);
+                BufferedReader br = new BufferedReader(new InputStreamReader(in));
+                String strLine;
+                while ((strLine = br.readLine()) != null)   {
+                    System.out.println (strLine);
+                }
+                in.close();
+            }
+            catch (Exception e){
+                System.err.println("Error: " + e.getMessage());
+            }
+        }
+    }
+    </code></pre>
+
+.. section::
+
+    <h2>Swapping</h2>
+
+    <div class="fragment fade-in"><div class="fragment shrink">
+        <h3>Wait for it !</h3>
+    </div></div>
+
+    <div class="fragment zoom-in">
+        <code style="font-size: 2em; margin-top: 2em;">
+    a, b = b, a
+        </code>
+    </div>
+
+.. section::
+
+    <h2>Computing a list of squares</h2>
+
+    <div class="fragment fade-in">
+        <pre><code data-trim class="python">
+    [x**2 for x in range(10)]
+        </code></pre>
+    </div>
+
+.. section::
+
+    <h2 class="fragment shrink">Now you have some idea about the language</h2>
+    <p class="spacer"></p>
+    <h1 class="fragment zoom-in">How about some cool demos ?</h1>
+
+.. section::
+
+    <h1>Demo 1</h1>
+    <p class="spacer"></p>
+    <h2>Visualizations</h2>
+
+.. section::
+
+    <h1>Demo 2</h1>
+    <p class="spacer"></p>
+    <h2>A Search Engine</h2>
+
+.. section::
+
+    <h1>Demo 3</h1>
+    <p class="spacer"></p>
+    <h2>A Web Application</h2>
+
+.. section::
+
+    <h1>Demo 4</h1>
+    <p class="spacer"></p>
+    <h2>Scripts which talk to the internet</h2>
+
+.. section::
+
+    <h2 class="fragment grow">FAQs</h2>
+    <p class="spacer"></p>
+    <h3 align="left" class="fragment zoom-in">What is it ?</h3>
+    <h3 align="left" class="fragment zoom-in">Who is using it ?</h3>
+    <h3 align="left" class="fragment zoom-in">Who wrote it ?</h3>
+    <h3 align="left" class="fragment zoom-in">How fast is it ?</h3>
+    <h3 align="left" class="fragment zoom-in">Which platform does it run on ?</h3>
+    <h3 align="left" class="fragment zoom-in">What can I do with it ?</h3>
+    <h3 align="left" class="fragment zoom-in">What are the data types ?</h3>
+    <h3 class="fragment zoom-in" align="right">... many more</h3>
+
+.. section::
+
+    <h2>Who is using Python ?</h2>
+    <img class="fragment roll-out" src="/images/slides/python/using-python.png"/>
+
+.. section::
+
+    <h2>Who is using Python ?</h2>
+    <ul style="float: left;">
+        <li class="fragment roll-in">Google</li>
+        <li class="fragment roll-in">YouTube</li>
+        <li class="fragment roll-in">Dropbox</li>
+        <li class="fragment roll-in">Yahoo</li>
+        <li class="fragment roll-in">NASA</li>
+        <li class="fragment roll-in">Nokia</li>
+        <li class="fragment roll-in">IBM</li>
+        <li class="fragment roll-in">CIA</li>
+        <li class="fragment roll-in">Disqus</li>
+        <li class="fragment roll-in">Walt Disney</li>
+        <li class="fragment roll-in">... and many more</li>
+    </ul>
+
+.. section::
+
+    <h2>Where does Python work ?</h2>
+    <img class="fragment roll-out" src="/images/slides/python/python-rickshaw.jpg"/>
+
+.. section::
+
+    <h2>Where does Python work ?</h2>
+    <ul>
+        <li>works on Windows, Linux and MacOSX</li>
+        <li>also works on Nokia Series 40 and Series 60</li>
+        <li>on Android you can use SL4A for running Python</li>
+        <li>iOS also has Python interpreters</li>
+    </ul>
+
+.. section::
+
+    <h2>Why Python ?</h2>
+    <img class="fragment roll-out" height="600" src="/images/slides/python/xkcd.png"/>
+
+.. section::
+
+    <h2>Why Python ?</h2>
+    <ul>
+        <li>free and open source</li>
+        <li>cross platform</li>
+        <li>clear and readable syntax</li>
+        <li>rapid application development</li>
+        <li>"batteries included" with a great "standard library"</li>
+        <li>works great with C, Java, .NET and other technologies</li>
+        <li>automatic memory management and garbage collection</li>
+    </ul>
+
+.. section::
+
+    <h2>Why Python ?</h2>
+    <ul>
+        <li>significantly reduces development time and source code size.
+            <ul>
+                <li>usually 3-5x shorter than equivalent Java programs</li>
+                <li>usually 5-10x shorter than equivalent C++ programs</li>
+            </ul>
+        </li>
+        <li>helps the developer focus on code</li>
+        <li>excellent language for prototyping</li>
+        <li>... and many more</li>
+    </ul>
+
+.. section::
+
+    <h2>Why not Python ?</h2>
+    <ul>
+        <li>often just considered as a scripting language</li>
+        <li>slower than compiled languages</li>
+        <li>slower parts can often be compiled to C, to make them fast</li>
+    </ul>
+
+.. section::
+
+    <h2>About Python</h2>
+    <ul>
+        <li>created by Guido van Rossum
+            <br/><img src="/images/slides/python/guido.jpg" height="200px"/></li>
+        <li>named after BBC show "Monty Python"</li>
+        <li>first version released in 1989</li>
+        <li>considered 8th most popular language</li>
+        <li>won 2007 and 2010 "Programming Language of the Year"</li>
+    </ul>
+
+.. section::
+
+    <h2>Where can I learn Python?</h2>
+    <p>Everybody is using Python to teach Programming</p>
+    <ul style="float:left;">
+        <li><a href="http://www.udacity.com/" target="_blank">Udacity</a></li>
+        <li><a href="http://www.edx.org/" target="_blank">edX</a></li>
+        <li><a href="http://www.khanacademy.com/" target="_blank">Khan Academy</a></li>
+        <li><a href="http://ocw.mit.edu/index.htm" target="_blank">MIT</a></li>
+    </ul>
+
+.. section::
+
+    <h2>Where can I learn Python?</h2>
+    <blockquote align="left">
+        “Udacity’s courses so far have been using Python because it is overall, <strong>the most convenient language for teaching and learning</strong>. The natural syntax means students spend less 6me grokking code than with terser languages.”
+    </blockquote>
+    <em style="float:right;">-- Chris Chew, Software Engineer, Udacity Inc.<sup>[3]</sup></em>
+
+.. section::
+
+    <h2>What can I do with Python?</h2>
+    <ul>
+        <li>Web Development</li>
+        <li>Database Access</li>
+        <li>Desktop GUIs</li>
+        <li>Scientific and Numeric computing</li>
+        <li>Network programming</li>
+        <li>Games and 3D graphics</li>
+        <li>Embedded systems</li>
+        <li>... sky is the limit !</li>
+    </ul>
+
+.. section::
+
+    <h2>Data types</h2>
+    <ul style="float: left;">
+        <li>None</li>
+        <li>Numeric
+            <ul>
+                <li>int</li>
+                <li>long</li>
+                <li>float</li>
+                <li>complex</li>
+                <li>boolean(True, False)</li>
+            </ul>
+        </li>
+        <li>Sequences
+            <ul>
+                <li>str</li>
+                <li>unicode</li>
+                <li>basestring</li>
+                <li>list</li>
+                <li>tuple</li>
+            </ul>
+        </li>
+    </ul>
+
+.. section::
+
+    <h2>Data types</h2>
+    <ul style="float: left;">
+        <li>Mapping Types
+            <ul>
+                <li>dict</li>
+                <li>set</li>
+                <li>frozenset</li>
+            </ul>
+        </li>
+    </ul>
+
+.. section::
+
+    <h1>Thats all folks!</h1>
+
+.. section::
+
+    <h1>References</h1>
+    <ol>
+        <li><a href="http://wiki.python.org/moin/OrganizationsUsingPython" target="_blank">http://wiki.python.org/moin/OrganizationsUsingPython</a></li>
+        <li><a href="http://www.python.org/about/" target="_blank">http://www.python.org/about/</a></li>
+        <li><a href="http://blog.udacity.com/2012/05/learning-to-program-why-python.html" target="_blank">http://blog.udacity.com/2012/05/learning-to-program-why-python.html</a></li>
+        <li><a href="http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html" target="_blank">http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html</a></li>
+        <li><a href="http://xkcd.com/353/" target="_blank">xkcd 353</a></li>
+        <li><a href="http://us.pycon.org/2012" target="_blank">Sponsor logos on PyCon US 2012</a></li>
+    </ol>
