@@ -8,11 +8,14 @@
 .. section::
 
     <h1>Python</h1>
-    <p>by <a href="http://www.dhruvb.com/blog/" target="_blank">Dhruv Baldawa</a> / <a href="http://www.twitter.com/dhruvbaldawa" target="_blank">@dhruvbaldawa</a>
+    <p>by <a href="http://www.dhruvb.com/blog/" target="_blank">Dhruv Baldawa</a>
+    <p><a href="http://www.dhruvb.com/" target="_blank">http://www.dhruvb.com/</a></p>
+    <p><a href="http://www.twitter.com/dhruvbaldawa" target="_blank">@dhruvbaldawa</a> on twitter</p>
 
     <aside class="notes">
         Introduce yourself, where you work. GSoC. Gauge the audience type, expertise and interest of the audience.
     </aside>
+
 .. section::
 
     <h1>Show me the code!</h1>
@@ -401,7 +404,9 @@
 
 .. section::
 
-    <h1>Thats all folks!</h1>
+    <h1>Questions ?</h1>
+    <p>Contact me at: <a href="http://www.dhruvb.com/">http://www.dhruvb.com/</a></p>
+    <p>Submit feedback: <a href="http://www.dhruvb.com/pyfeedback">http://www.dhruvb.com/pyfeedback</a></p>
 
 .. section::
 

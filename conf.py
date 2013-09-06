@@ -184,7 +184,7 @@ DEPLOY_COMMANDS = []
 # Where the output site should be located
 # If you don't use an absolute path, it will be considered as relative
 # to the location of conf.py
-# OUTPUT_FOLDER = 'output'
+OUTPUT_FOLDER = 'output'
 
 # where the "cache" of partial generated content should be located
 # default: 'cache'
@@ -453,4 +453,6 @@ ENABLED_EXTRAS = [
 # Put in global_context things you want available on all your templates.
 # It can be anything, data, functions, modules, etc.
 
-GLOBAL_CONTEXT = {}
+GLOBAL_CONTEXT = {
+    'EFF_PATH': ''  # '' for local, '/blog' for production
+}

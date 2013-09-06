@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/reveal/lib/css/zenburn.css">
     <!-- If the query includes 'print-pdf', use the PDF print sheet -->
     <script>
-        document.write( '<link rel="stylesheet" href="/reveal/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        document.write( '<link rel="stylesheet" href="${EFF_PATH}/reveal/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
     </script>
 
     <!--[if lt IE 9]>
@@ -42,14 +42,14 @@
 
         // Optional libraries used to extend on reveal.js
         dependencies: [
-            { src: '/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-            { src: '/reveal/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-            { src: '.reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-            { src: '/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-            { src: '/reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-            { src: '/reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-            // { src: '/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
-            // { src: '/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+            { src: '${EFF_PATH}/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            { src: '${EFF_PATH}/reveal/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: '${EFF_PATH}/reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+             { src: '${EFF_PATH}/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+             { src: '${EFF_PATH}/reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+             { src: '${EFF_PATH}/reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+            // { src: '${EFF_PATH}/reveal/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+            // { src: '${EFF_PATH}/reveal/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
         ]
     });
 </%def>
