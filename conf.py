@@ -16,7 +16,7 @@ BLOG_TITLE = "Dhruv Baldawa's Web Log"
 SITE_URL = "http://www.dhruvb.com/blog"
 # This is the URL where nikola's output will be deployed.
 # If not set, defaults to SITE_URL
-BASE_URL = "http://www.dhruvb.com/blog"
+BASE_URL = "http://www.dhruvb.com/blog/"
 BLOG_EMAIL = "contact@dhruvb.com"
 BLOG_DESCRIPTION = "This is a blog where I write stuff about the things I do: \
 travelling, writing and coding. Mostly, I work with Python, but I play with \
@@ -56,7 +56,7 @@ TRANSLATIONS = {
 
 # Links for the sidebar / navigation bar.
 # You should provide a key-value pair for each used language.
-SIDEBAR_LINKS = {
+NAVIGATION_LINKS = {
     DEFAULT_LANG: (
         ('https://www.github.com/dhruvbaldawa', 'Code'),
         ('/archive.html', 'Archives'),
@@ -92,12 +92,17 @@ SIDEBAR_LINKS = {
 # rss feeds.
 #
 
-post_pages = (
-    ("posts/*.txt", "posts", "post.tmpl", True),
-    ("stories/*.txt", "stories", "story.tmpl", False),
-    ("presentations/*.txt", "presentations", "presentation.tmpl", False)
+POSTS = (
+    ("posts/*.txt", "posts", "post.tmpl"),
+    ("posts/*.rst", "posts", "post.tmpl"),
 )
 
+PAGES = (
+    ("stories/*.rst", "stories", "story.tmpl"),
+    ("stories/*.txt", "stories", "story.tmpl"),
+    ("presentations/*.txt", "presentations", "presentation.tmpl"),
+    ("presentations/*.rst", "presentations", "presentation.tmpl"),
+)
 # One or more folders containing files to be copied as-is into the output.
 # The format is a dictionary of "source" "relative destination".
 # Default is:
@@ -111,15 +116,19 @@ post_pages = (
 # 'rest' is reStructuredText
 # 'markdown' is MarkDown
 # 'html' assumes the file is html and just copies it
-post_compilers = {
-    "rest": ('.txt', '.rst'),
+COMPILERS = {
+    "rest": ('.rst', '.txt'),
     "markdown": ('.md', '.mdown', '.markdown'),
     "textile": ('.textile',),
     "txt2tags": ('.t2t',),
     "bbcode": ('.bb',),
     "wiki": ('.wiki',),
     "ipynb": ('.ipynb',),
-    "html": ('.html', '.htm')
+    "html": ('.html', '.htm'),
+    # Pandoc detects the input from the source filename
+    # but is disabled by default as it would conflict
+    # with many of the others.
+    # "pandoc": ('.rst', '.md', '.txt'),
 }
 
 # Create by default posts in one file format?
@@ -237,7 +246,7 @@ OUTPUT_FOLDER = 'output'
 # INDEXES_PAGES = ""  # If this is empty, the default is 'old posts page %d' translated
 
 # Name of the theme to use.
-THEME = 'custom'
+THEME = "custom"
 
 # Color scheme to be used for code blocks. If your theme provide "assets/css/code.css" this
 # is ignored.
@@ -286,24 +295,69 @@ CONTENT_FOOTER = CONTENT_FOOTER.format(license=LICENSE,
                                        author=BLOG_AUTHOR,
                                        date=time.gmtime().tm_year)
 
-# To enable comments via Disqus, you need to create a forum at
-# http://disqus.com, and set DISQUS_FORUM to the short name you selected.
-# If you want to disable comments, set it to False.
-# Default is "nikolademo", used by the demo sites
-DISQUS_FORUM = "dhruvblog"
+# To use comments, you can choose between different third party comment
+# systems, one of "disqus", "livefyre", "intensedebate", "moot",
+#                 "googleplus" or "facebook"
+COMMENT_SYSTEM = "disqus"
+# And you also need to add your COMMENT_SYSTEM_ID which
+# depends on what comment system you use. The default is
+# "nikolademo" which is a test account for Disqus. More information
+# is in the manual.
+COMMENT_SYSTEM_ID = "dhruvblog"
 
-# Create index.html for story folders?
-# STORY_INDEX = False
-# Enable comments on story pages?
-# COMMENTS_IN_STORIES = False
-# Enable comments on picture gallery pages?
-# COMMENTS_IN_GALLERIES = False
+# Enable annotations using annotateit.org?
+# If set to False, you can still enable them for individual posts and pages
+# setting the "annotations" metadata.
+# If set to True, you can disable them for individual posts and pages using
+# the "noannotations" metadata.
+# ANNOTATIONS = False
 
-# If a link ends in /index.html, drop the index.html part.
+# What file should be used for directory indexes?
+# Defaults to index.html
+# Common other alternatives: default.html for IIS, index.php
+# INDEX_FILE = "index.html"
+
+# If a link ends in /index.html,  drop the index.html part.
 # http://mysite/foo/bar/index.html => http://mysite/foo/bar/
+# (Uses the INDEX_FILE setting, so if that is, say, default.html,
+# it will instead /foo/default.html => /foo)
+# (Note: This was briefly STRIP_INDEX_HTML in v 5.4.3 and 5.4.4)
 # Default = False
 STRIP_INDEXES = True
+
+# Should the sitemap list directories which only include other directories
+# and no files.
+# Default to True
+# If this is False
+# e.g. /2012 includes only /01, /02, /03, /04, ...: don't add it to the sitemap
+# if /2012 includes any files (including index.html)... add it to the sitemap
+# SITEMAP_INCLUDE_FILELESS_DIRS = True
+
+# Instead of putting files in <slug>.html, put them in
+# <slug>/index.html. Also enables STRIP_INDEXES
+# This can be disabled on a per-page/post basis by adding
+#    .. pretty_url: False
+# to the metadata
 PRETTY_URLS = True
+
+# If True, publish future dated posts right away instead of scheduling them.
+# Defaults to False.
+# FUTURE_IS_NOW = False
+
+# If True, future dated posts are allowed in deployed output
+# Only the individual posts are published/deployed; not in indexes/sitemap
+# Generally, you want FUTURE_IS_NOW and DEPLOY_FUTURE to be the same value.
+# DEPLOY_FUTURE = False
+# If False, draft posts will not be deployed
+# DEPLOY_DRAFTS = True
+
+# Allows scheduling of posts using the rule specified here (new_post -s)
+# Specify an iCal Recurrence Rule: http://www.kanzaki.com/docs/ical/rrule.html
+# SCHEDULE_RULE = ''
+# If True, use the scheduling rule to all posts by default
+# SCHEDULE_ALL = False
+# If True, schedules post to today if possible, even if scheduled hour is over
+# SCHEDULE_FORCE_TODAY = False
 
 # Do you want a add a Mathjax config file?
 # MATHJAX_CONFIG = ""
@@ -326,7 +380,7 @@ PRETTY_URLS = True
 
 # Enable Addthis social buttons?
 # Defaults to true
-ADD_THIS_BUTTONS = False
+SOCIAL_BUTTONS_CODE = False
 
 # Modify the number of Post per Index Page
 # Defaults to 10
@@ -377,7 +431,7 @@ ADD_THIS_BUTTONS = False
 # EXTRA_HEAD_DATA = ""
 # Google analytics or whatever else you use. Added to the bottom of <body>
 # in the default template (base.tmpl).
-ANALYTICS = """
+BODY_END = """
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
@@ -453,6 +507,12 @@ ENABLED_EXTRAS = [
 # Put in global_context things you want available on all your templates.
 # It can be anything, data, functions, modules, etc.
 
+GLOBAL_CONTEXT_DEPLOY = {
+    'EFF_PATH': '/blog'
+}
+
 GLOBAL_CONTEXT = {
     'EFF_PATH': ''  # '' for local, '/blog' for production
 }
+
+# GLOBAL_CONTEXT.update(GLOBAL_CONTEXT_DEPLOY)
