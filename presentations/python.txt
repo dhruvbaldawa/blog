@@ -150,16 +150,6 @@
 
 .. section::
 
-    <h2>Computing a list of squares</h2>
-
-    <div class="fragment fade-in">
-        <pre><code data-trim class="python">
-    [x**2 for x in range(10)]
-        </code></pre>
-    </div>
-
-.. section::
-
     <h2 class="fragment shrink">Now you have some idea about the language</h2>
     <p class="spacer"></p>
     <h1 class="fragment zoom-in">How about some cool demos ?</h1>
@@ -247,7 +237,7 @@
             <br/><img src="/images/slides/python/guido.jpg" height="200px"/></li>
         <li>named after BBC show "Monty Python"</li>
         <li>first version released in 1989</li>
-        <li>considered 8th most popular language</li>
+        <li>consistently ranked in top 8 most popular language since 2008</li>
         <li>won 2007 and 2010 "Programming Language of the Year"</li>
     </ul>
 
@@ -283,10 +273,11 @@
 
     <h2>Where can I run Python ?</h2>
     <ul>
-        <li>works on Windows, Linux and MacOSX</li>
-        <li>also works on Nokia Series 40 and Series 60</li>
-        <li>on Android you can use SL4A for running Python</li>
-        <li>iOS also has Python interpreters</li>
+        <li>works on Windows, Linux and MacOSX.</li>
+        <li>also works on Nokia Series 40 and Series 60.</li>
+        <li>There are Python interpreters and packaging for Android.</li>
+        <li>Python interpreters are also available for iOS.</li>
+        <li>There are also various projects regarding running Python in browser.</li>
     </ul>
 
 .. section::
@@ -302,11 +293,6 @@
         <li>Embedded systems</li>
         <li>... sky is the limit !</li>
     </ul>
-
-.. section::
-
-    <h2>Why Python ?</h2>
-    <img class="fragment roll-out" height="600" src="/images/slides/python/xkcd.png"/><small class="fragment roll-out" style="margin-left: 10px;"> Courtesy: xkcd<sup>[5]</sup></small>
 
 .. section::
 
@@ -366,40 +352,12 @@
 
 .. section::
 
-    <h2>Data types</h2>
-    <ul style="float: left;">
-        <li>None</li>
-        <li>Numeric
-            <ul>
-                <li>int</li>
-                <li>long</li>
-                <li>float</li>
-                <li>complex</li>
-                <li>boolean(True, False)</li>
-            </ul>
-        </li>
-        <li>Sequences
-            <ul>
-                <li>str</li>
-                <li>unicode</li>
-                <li>basestring</li>
-                <li>list</li>
-                <li>tuple</li>
-            </ul>
-        </li>
-    </ul>
-
-.. section::
-
-    <h2>Data types</h2>
-    <ul style="float: left;">
-        <li>Mapping Types
-            <ul>
-                <li>dict</li>
-                <li>set</li>
-                <li>frozenset</li>
-            </ul>
-        </li>
+    <h2>What next?</h2>
+    <ul>
+        <li>Mumbai Python Users Group (MumPy): <a href="https://groups.google.com/forum/#!forum/mumpy">https://groups.google.com/forum/#!forum/mumpy</a></li>
+        <li>Mumpy Facebook: <a href="https://www.facebook.com/groups/mumpy/">https://www.facebook.com/groups/mumpy/</a></li>
+        <li>Mumpy Twitter: <a href="https://www.twitter.com/PythonMumbai">@PythonMumbai</a></li>
+        <li>Python India Community: <a href="http://python.org.in/">http://python.org.in/</a></p></li>
     </ul>
 
 .. section::
