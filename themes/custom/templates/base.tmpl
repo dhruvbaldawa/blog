@@ -2,7 +2,8 @@
 <%namespace file="base_helper.tmpl" import="*"/>
 ${set_locale(lang)}
 <!DOCTYPE html>
-<html lang="${lang}">
+<!--[if IE 9]><html class="lt-ie10" lang="${lang}" ><![endif]-->
+<html class="no-js" lang="${lang}">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
@@ -48,38 +49,35 @@ ${set_locale(lang)}
     </div>
 </div>
 <!-- End of Menubar -->
-<div class="container-fluid" id="container-fluid">
+<div>
     <!--Body content-->
-    <div class="row-fluid">
-        <div class="span2"></div>
-        <div class="span8 span12-tablet">
-            <div class="row">
-                <div class="content span8 span12-tablet">
-                    <%block name="content"></%block>
-                </div>
-                <div class="sidemenu span4 span12-tablet">
-                    <%block name="sidebar">
-                        <div class="media">
-                            <img class="pull-left thumbnail" src="http://www.gravatar.com/avatar/0b7c937b3071a76c73c929507d484fdb" />
-                            <div class="media-body">
-                                <h4 class="media-heading">Dhruv Baldawa</h4>
-                                <h5 class="mute">Mumbai, India</h5>
-                                ${social_icons()}
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="media">
-                            <div class="media-heading"><strong>GDG Devfest 2013</strong></div>
-                            <ul>
-                                <li><a href="http://www.dhruvb.com/blog/presentations/python/" target="_blank">Python slides</a></li>
-                                <li><a href="http://www.dhruvb.com/pyfeedback" target="_blank">Python session feedback</a></li>
-                            </ul>
-                        </div>
-                    </%block>
+
+<div class="row">
+    <div class="sidemenu small-12 large-4 centered column">
+        <%block name="sidebar">
+            <div class="media">
+                <img class="pull-left thumbnail" src="http://www.gravatar.com/avatar/0b7c937b3071a76c73c929507d484fdb" />
+                <div class="media-body">
+                    <h4 class="media-heading">Dhruv Baldawa</h4>
+                    <h5 class="mute">Mumbai, India</h5>
+                    ${social_icons()}
                 </div>
             </div>
-        </div>
+            <hr>
+            <div class="media">
+                <div class="media-heading"><strong>GDG Devfest 2013</strong></div>
+                <ul>
+                    <li><a href="http://www.dhruvb.com/blog/presentations/python/" target="_blank">Python slides</a></li>
+                    <li><a href="http://www.dhruvb.com/pyfeedback" target="_blank">Python session feedback</a></li>
+                </ul>
+            </div>
+        </%block>
     </div>
+    <div class="content medium-12 large-8 centered column">
+        <%block name="content"></%block>
+    </div>
+</div>
+
     <!--End of body content-->
 </div>
 <div class="footerbox">
