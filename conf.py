@@ -54,6 +54,20 @@ TRANSLATIONS = {
     # "es": "./es",
 }
 
+# What will translated input files be named like?
+
+# If you have a page something.rst, then something.rst.pl will be considered
+# its Polish translation.
+#     (in the above example: path == "something", lang == "pl", ext == "rst")
+# this pattern is also used for metadata:
+#     something.meta -> something.meta.pl
+
+TRANSLATIONS_PATTERN = "{path}.{lang}.{ext}"
+
+# If you don't want your Polish files to be considered Perl code, use this:
+# TRANSLATIONS_PATTERN = "{path}.{lang}.{ext}"
+#     Note that this pattern will become the default in v7.0.0.
+
 # Links for the sidebar / navigation bar.
 # You should provide a key-value pair for each used language.
 NAVIGATION_LINKS = {
@@ -70,14 +84,27 @@ NAVIGATION_LINKS = {
 # Below this point, everything is optional
 ##############################################
 
+# While nikola can select a sensible locale for each language,
+# sometimes explicit control can come handy.
+# In this file we express locales in the string form that
+# python's locales will accept in your OS, by example
+# "en_US.utf8" in unix-like OS, "English_United States" in Windows.
+# LOCALES = dict mapping language --> explicit locale for the languages
+# in TRANSLATIONS. You can ommit one or more keys.
+# LOCALE_FALLBACK = locale to use when an explicit locale is unavailable
+# LOCALE_DEFAULT = locale to use for languages not mentioned in LOCALES; if
+# not set the default Nikola mapping is used.
 
-# post_pages contains (wildcard, destination, template, use_in_feed) tuples.
+# POSTS and PAGES contains (wildcard, destination, template) tuples.
 #
 # The wildcard is used to generate a list of reSt source files
 # (whatever/thing.txt).
-# That fragment must have an associated metadata file (whatever/thing.meta),
-# and opcionally translated files (example for spanish, with code "es"):
+#
+# That fragment could have an associated metadata file (whatever/thing.meta),
+# and optionally translated files (example for spanish, with code "es"):
 #     whatever/thing.txt.es and whatever/thing.meta.es
+#
+#     This assumes you use the default TRANSLATIONS_PATTERN.
 #
 # From those files, a set of HTML fragment files will be generated:
 # cache/whatever/thing.html (and maybe cache/whatever/thing.html.es)
@@ -86,10 +113,11 @@ NAVIGATION_LINKS = {
 # pages, which will be placed at
 # output / TRANSLATIONS[lang] / destination / pagename.html
 #
-# where "pagename" is specified in the metadata file.
+# where "pagename" is the "slug" specified in the metadata file.
 #
-# if use_in_feed is True, then those posts will be added to the site's
-# rss feeds.
+# The difference between POSTS and PAGES is that POSTS are added
+# to feeds and are considered part of a blog, while PAGES are
+# just independent HTML pages.
 #
 
 POSTS = (
@@ -103,6 +131,7 @@ PAGES = (
     ("presentations/*.txt", "presentations", "presentation.tmpl"),
     ("presentations/*.rst", "presentations", "presentation.tmpl"),
 )
+
 # One or more folders containing files to be copied as-is into the output.
 # The format is a dictionary of "source" "relative destination".
 # Default is:
@@ -159,6 +188,8 @@ TAG_PAGES_ARE_INDEXES = True
 
 # Create per-month archives instead of per-year
 CREATE_MONTHLY_ARCHIVE = False
+# Create one large archive instead of per-year
+# CREATE_SINGLE_ARCHIVE = False
 # Final locations for the archives are:
 # output / TRANSLATION[lang] / ARCHIVE_PATH / ARCHIVE_FILENAME
 # output / TRANSLATION[lang] / ARCHIVE_PATH / YEAR / index.html
@@ -166,9 +197,18 @@ CREATE_MONTHLY_ARCHIVE = False
 # ARCHIVE_PATH = ""
 # ARCHIVE_FILENAME = "archive.html"
 
+# URLs to other posts/pages can take 3 forms:
+# rel_path: a relative URL to the current page/post (default)
+# full_path: a URL with the full path from the root
+# absolute: a complete URL (that includes the SITE_URL)
+# URL_TYPE = 'rel_path'
+
 # Final locations are:
 # output / TRANSLATION[lang] / RSS_PATH / rss.xml
 # RSS_PATH = ""
+
+# Number of posts in RSS feeds
+FEED_LENGTH = 20
 
 # Slug the Tag URL easier for users to type, special characters are
 # often removed or replaced as well.
@@ -221,10 +261,32 @@ OUTPUT_FOLDER = 'output'
 #    ".jpg": ["jpegoptim --strip-all -m75 -v %s"],
 # }
 
-# Create a gzipped copy of each generated file. Cheap server-side optimization.
+# Expert setting! Create a gzipped copy of each generated file. Cheap server-
+# side optimization for very high traffic sites or low memory servers.
 # GZIP_FILES = False
 # File extensions that will be compressed
-# GZIP_EXTENSIONS = ('.txt', '.htm', '.html', '.css', '.js', '.json')
+# GZIP_EXTENSIONS = ('.txt', '.htm', '.html', '.css', '.js', '.json', '.xml')
+# Use an external gzip command? None means no.
+# Example: GZIP_COMMAND = "pigz -k {filename}"
+# GZIP_COMMAND = None
+# Make sure the server does not return a "Accept-Ranges: bytes" header for
+# files compressed by this option! OR make sure that a ranged request does not
+# return partial content of another representation for these resources. Do not
+# use this feature if you do not understand what this means.
+
+# Compiler to process LESS files.
+# LESS_COMPILER = 'lessc'
+
+# A list of options to pass to the LESS compiler.
+# Final command is: LESS_COMPILER LESS_OPTIONS file.less
+# LESS_OPTIONS = []
+
+# Compiler to process Sass files.
+# SASS_COMPILER = 'sass'
+
+# A list of options to pass to the Sass compiler.
+# Final command is: SASS_COMPILER SASS_OPTIONS file.s(a|c)ss
+# SASS_OPTIONS = []
 
 # #############################################################################
 # Image Gallery Options
@@ -236,22 +298,31 @@ OUTPUT_FOLDER = 'output'
 # THUMBNAIL_SIZE = 180
 # MAX_IMAGE_SIZE = 1280
 # USE_FILENAME_AS_TITLE = True
+# EXTRA_IMAGE_EXTENSIONS = []
+#
+# If set to False, it will sort by filename instead. Defaults to True
+# GALLERY_SORT_BY_DATE = True
+
 
 # #############################################################################
 # HTML fragments and diverse things that are used by the templates
 # #############################################################################
 
-# Data about post-per-page indexes
-# INDEXES_TITLE = ""  # If this is empty, the default is BLOG_TITLE
-# INDEXES_PAGES = ""  # If this is empty, the default is 'old posts page %d' translated
+# Data about post-per-page indexes.
+# INDEXES_PAGES defaults to 'old posts, page %d' or 'page %d' (translated),
+# depending on the value of INDEXES_PAGES_MAIN.
+# INDEXES_TITLE = ""         # If this is empty, defaults to BLOG_TITLE
+# INDEXES_PAGES = ""         # If this is empty, defaults to '[old posts,] page %d' (see above)
+# INDEXES_PAGES_MAIN = False # If True, INDEXES_PAGES is also displayed on
+                             # the main (the newest) index page (index.html)
 
 # Name of the theme to use.
 THEME = "custom"
 
-# Color scheme to be used for code blocks. If your theme provide "assets/css/code.css" this
-# is ignored.
-# Can be any of autumn borland bw colorful default emacs friendly fruity manni monokai
-# murphy native pastie perldoc rrt tango trac vim vs
+# Color scheme to be used for code blocks. If your theme provides
+# "assets/css/code.css" this is ignored.
+# Can be any of autumn borland bw colorful default emacs friendly fruity manni
+# monokai murphy native pastie perldoc rrt tango trac vim vs
 CODE_COLOR_SCHEME = "friendly"
 
 # If you use 'site-reveal' theme you can select several subthemes
@@ -309,6 +380,13 @@ COMMENT_SYSTEM_ID = "dhruvblog"
 # Defaults to index.html
 # Common other alternatives: default.html for IIS, index.php
 # INDEX_FILE = "index.html"
+
+# Create index.html for story folders?
+# STORY_INDEX = False
+# Enable comments on story pages?
+# COMMENTS_IN_STORIES = False
+# Enable comments on picture gallery pages?
+# COMMENTS_IN_GALLERIES = False
 
 # If a link ends in /index.html,  drop the index.html part.
 # http://mysite/foo/bar/index.html => http://mysite/foo/bar/
@@ -371,9 +449,38 @@ PRETTY_URLS = True
 #</script>
 #"""
 
-# Enable Addthis social buttons?
-# Defaults to true
-SOCIAL_BUTTONS_CODE = False
+# Do you want to customize the nbconversion of your IPython notebook?
+# IPYNB_CONFIG = {}
+# With the following example configuracion you can use a custom jinja template
+# called `toggle.tpl` which has to be located in your site/blog main folder:
+# IPYNB_CONFIG = {'Exporter':{'template_file': 'toggle'}}
+
+# What MarkDown extensions to enable?
+# You will also get gist, nikola and podcast because those are
+# done in the code, hope you don't mind ;-)
+# MARKDOWN_EXTENSIONS = ['fenced_code', 'codehilite']
+
+# Social buttons. This is sample code for AddThis (which was the default for a
+# long time). Insert anything you want here, or even make it empty.
+# SOCIAL_BUTTONS_CODE = """
+# <!-- Social buttons -->
+# <div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
+# <a class="addthis_button_more">Share</a>
+# <ul><li><a class="addthis_button_facebook"></a>
+# <li><a class="addthis_button_google_plusone_share"></a>
+# <li><a class="addthis_button_linkedin"></a>
+# <li><a class="addthis_button_twitter"></a>
+# </ul>
+# </div>
+# <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script>
+# <!-- End of social buttons -->
+# """
+
+# Hide link to source for the posts?
+# HIDE_SOURCELINK = False
+# Copy the source files for your pages?
+# Setting it to False implies HIDE_SOURCELINK = True
+# COPY_SOURCES = True
 
 # Modify the number of Post per Index Page
 # Defaults to 10
@@ -387,14 +494,9 @@ SOCIAL_BUTTONS_CODE = False
 # Show only teasers in the RSS feed? Default to True
 # RSS_TEASERS = True
 
-# A search form to search this site, for the sidebar. You can use a google
-# custom search (http://www.google.com/cse/)
-# Or a duckduckgo search: https://duckduckgo.com/search_box.html
-# Default is no search form.
-# SEARCH_FORM = ""
+# This search form works for any site and looks good in the "site" theme where
+# it appears on the navigation bar:
 #
-# This search form works for any site and looks good in the "site" theme where it
-# appears on the navigation bar
 #SEARCH_FORM = """
 #<!-- Custom search -->
 #<form method="get" id="search" action="http://duckduckgo.com/"
@@ -408,9 +510,38 @@ SOCIAL_BUTTONS_CODE = False
 #<input type="submit" value="DuckDuckGo Search" style="visibility: hidden;" />
 #</form>
 #<!-- End of custom search -->
-#""" % BLOG_URL
+#""" % SITE_URL
 #
-# Also, there is a local search plugin you can use.
+# If you prefer a google search form, here's an example that should just work:
+#SEARCH_FORM = """
+#<!-- Custom search with google-->
+#<form id="search" action="http://google.com/search" method="get" class="navbar-form pull-left">
+#<input type="hidden" name="q" value="site:%s" />
+#<input type="text" name="q" maxlength="255" results="0" placeholder="Search"/>
+#</form>
+#<!-- End of custom search -->
+#""" % SITE_URL
+
+# Also, there is a local search plugin you can use, based on Tipue, but it requires setting several
+# options:
+
+# SEARCH_FORM = """
+# <span class="navbar-form pull-left">
+# <input type="text" id="tipue_search_input">
+# </span>"""
+
+BODY_END = """
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-6974857-1', 'dhruvb.com');
+  ga('send', 'pageview');
+
+</script>
+"""
 
 # Use content distribution networks for jquery and twitter-bootstrap css and js
 # If this is True, jquery is served from the Google CDN and twitter-bootstrap
@@ -424,18 +555,6 @@ SOCIAL_BUTTONS_CODE = False
 # EXTRA_HEAD_DATA = ""
 # Google analytics or whatever else you use. Added to the bottom of <body>
 # in the default template (base.tmpl).
-BODY_END = """
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-6974857-1', 'dhruvb.com');
-  ga('send', 'pageview');
-
-</script>
-"""
 
 # The possibility to extract metadata from the filename by using a
 # regular expression.
@@ -489,10 +608,45 @@ TIMEZONE = 'Asia/Kolkata'
 ENABLED_EXTRAS = [
     #     'planetoid',
     #     'ipynb',
-    #     'localsearch',
-    #     'mustache',
+    'local_search',
+    #     'render_mustache',
     "custom_extras",
 ]
+
+# List of regular expressions, links matching them will always be considered
+# valid by "nikola check -l"
+# LINK_CHECK_WHITELIST = []
+
+# If set to True, enable optional hyphenation in your posts (requires pyphen)
+# HYPHENATE = False
+
+# The <hN> tags in HTML generated by certain compilers (reST/Markdown)
+# will be demoted by that much (1 → h1 will become h2 and so on)
+# This was a hidden feature of the Markdown and reST compilers in the
+# past.  Useful especially if your post titles are in <h1> tags too, for
+# example.
+# (defaults to 1.)
+# DEMOTE_HEADERS = 1
+
+# You can configure the logging handlers installed as plugins or change the
+# log level of the default stdout handler.
+LOGGING_HANDLERS = {
+    'stderr': {'loglevel': 'WARNING', 'bubble': True},
+    #'smtp': {
+    #    'from_addr': 'test-errors@example.com',
+    #    'recipients': ('test@example.com'),
+    #    'credentials':('testusername', 'password'),
+    #    'server_addr': ('127.0.0.1', 25),
+    #    'secure': (),
+    #    'level': 'DEBUG',
+    #    'bubble': True
+    #}
+}
+
+# Templates will use those filters, along with the defaults.
+# Consult your engine's documentation on filters if you need help defining
+# those.
+# TEMPLATE_FILTERS = {}
 
 # Put in global_context things you want available on all your templates.
 # It can be anything, data, functions, modules, etc.
