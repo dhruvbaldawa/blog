@@ -1,0 +1,19 @@
+{
+  "name": "blog",
+  "version": "0.1.0",
+  "homepage": "https://github.com/dhruvbaldawa/blog",
+  "authors": [
+    "Dhruv Baldawa <dhruvbaldawa@gmail.com>"
+  ],
+  "description": "Dhruv Baldawa's Web Log",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "themes/custom/assets/external",
+    "test",
+    "tests"
+  ],
+  "directory": "themes/custom/assets/external"
+
+}
