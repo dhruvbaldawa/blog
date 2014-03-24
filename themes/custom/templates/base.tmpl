@@ -16,32 +16,37 @@ ${set_locale(lang)}
 <div>
 <!--Body content-->
 
-<div class="infobar small-12 medium-5 column">
-    <%block name="sidebar">
-        <div class="box">
-            <img class="text-center [radius round]" src="http://www.gravatar.com/avatar/0b7c937b3071a76c73c929507d484fdb" />
-            <h2 class="text-center">Dhruv Baldawa
-            <small>Mumbai, India</small></h2>
+<div class="sidepanel small-12 medium-5 column">
+    <div class="sidepanel-main">
+        <div class="profile-box text-center">
+            <a href="#">
+                <img class="profile-pic thumbnail round" src="http://www.gravatar.com/avatar/0b7c937b3071a76c73c929507d484fdb" />
+            </a>
+            <h2>Dhruv Baldawa</h2>
             ${social_icons()}
         </div>
-        <hr>
-        <div class="box">
-            <div class="media-heading"><strong>GDG Devfest 2013</strong></div>
-            <ul>
-                <li><a href="http://www.dhruvb.com/blog/presentations/python/" target="_blank">Python slides</a></li>
-                <li><a href="http://www.dhruvb.com/pyfeedback" target="_blank">Python session feedback</a></li>
-            </ul>
-        </div>
-    </%block>
+
+        <%block name="sidebar">
+            <hr>
+            <div class="box">
+                <div class="media-heading"><strong>GDG Devfest 2013</strong></div>
+                <ul>
+                    <li><a href="http://www.dhruvb.com/blog/presentations/python/" target="_blank">Python slides</a></li>
+                    <li><a href="http://www.dhruvb.com/pyfeedback" target="_blank">Python session feedback</a></li>
+                </ul>
+            </div>
+        </%block>
+    </div>
 </div>
-<div class="small-12 medium-7 column">
+<div class="content small-12 medium-7 medium-offset-5 column end">
     <%block name="content"></%block>
+</div>
+<div class="footerbox small-12 column">
+    ${content_footer}
 </div>
 <!--End of body content-->
 </div>
-<div class="footerbox">
-    ${content_footer}
-</div>
+
 ${late_load_js()}
 ${analytics}
     <script type="text/javascript">jQuery(".colorbox").colorbox({maxWidth: "100%"});
