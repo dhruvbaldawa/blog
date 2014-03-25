@@ -17,6 +17,7 @@
   "dependencies": {
     "foundation": "~5.2.0",
     "reveal.js": "~2.6.1",
-    "colorbox": "~1.5.4"
+    "colorbox": "~1.5.4",
+    "foundation-icon-fonts": "zurb/foundation-icon-fonts"
   }
 }

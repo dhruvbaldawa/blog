@@ -6,6 +6,7 @@
     ${mathjax_config}
     <link href="/assets/external/foundation/css/normalize.css" rel="stylesheet" type="text/css">
     <link href="/assets/external/foundation/css/foundation.min.css" rel="stylesheet" type="text/css">
+    <link href="/assets/external/foundation-icon-fonts/foundation-icons.css" rel="stylesheet" type="text/css"/>
     <link href="/assets/css/rst.css" rel="stylesheet" type="text/css">
     <link href="/assets/css/code.css" rel="stylesheet" type="text/css">
     <link href="/assets/css/colorbox.css" rel="stylesheet" type="text/css">
@@ -77,19 +78,21 @@
 
 <%def name="social_icons()">
     <%
-        social_profiles = {
-            'facebook': 'http://www.facebook.com/baldawa',
-            'twitter': 'http://www.twitter.com/dhruvbaldawa',
-            'google': 'https://plus.google.com/u/0/108624147239735557968/?rel=author',
-            'linkedin': 'http://in.linkedin.com/in/dhruvbaldawa',
-            'flickr': 'http://www.flickr.com/photos/dhruvbaldawa/',
-            'mail': 'https://docs.google.com/forms/d/1no_NGknomUFgiMd_6Al5fgUKSXMaSjC-plyOby8uwko/viewform',
-        }
+        social_profiles = (
+            ('social-github', 'https://www.github.com/dhruvbaldawa'),
+            ('social-twitter', 'http://www.twitter.com/dhruvbaldawa'),
+            ('social-facebook', 'http://www.facebook.com/baldawa'),
+            ('social-google-plus', 'https://plus.google.com/u/0/108624147239735557968/?rel=author'),
+            ('social-linkedin', 'http://in.linkedin.com/in/dhruvbaldawa'),
+            ('social-flickr', 'http://www.flickr.com/photos/dhruvbaldawa/'),
+            ('at-sign', 'https://docs.google.com/forms/d/1no_NGknomUFgiMd_6Al5fgUKSXMaSjC-plyOby8uwko/viewform'),
+            ('rss', 'http://www.dhruvb.com/rss.xml'),
+        )
     %>
     <div class="social-icons">
-        % for profile, link in social_profiles.items():
+        % for profile, link in social_profiles:
             <a href="${link}" class="social-icon" target="_blank">
-                <img src="/images/social_icons/${profile}.png" />
+                <i class="fi-${profile}"></i>
             </a>
         %endfor
     </div>
