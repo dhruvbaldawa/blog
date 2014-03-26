@@ -10,8 +10,6 @@
 /*Large screens and up only*/
 @media only screen and (min-width: 64.063em) {
 .sidepanel-main {
-    display: table-cell;
-    vertical-align: middle;
     padding: 0 30px;
 }
 } /* min-width 1025px, large screens */

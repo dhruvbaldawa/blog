@@ -5,7 +5,7 @@ ${set_locale(lang)}
 <!--[if IE 9]><html class="lt-ie10" lang="${lang}" ><![endif]-->
 <html class="no-js" lang="${lang}">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta charset="utf-8">
     ${html_head()}
     <%block name="extra_head">
@@ -15,8 +15,24 @@ ${set_locale(lang)}
 <body>
 <div>
 <!--Body content-->
-<div class="sidepanel small-12 medium-5 large-4 column">
-    <div class="sidepanel-main">
+<div class="sidepanel small-12 medium-5 large-4">
+    <div class="contain-to-grid">
+        <nav class="top-bar" data-topbar>
+        <ul class="title-area">
+          <li class="name"></li>
+          <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+        </ul>
+        <section class="top-bar-section">
+            <!-- Left Nav Section -->
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Code</a></li>
+                <li><a href="#">Categories</a></li>
+            </ul>
+        </section>
+        </nav>
+    </div>
+    <div class="sidepanel-main small-12 end">
         <div class="profile-box text-center">
             <a href="#">
                 <img class="profile-pic thumbnail round" src="http://www.gravatar.com/avatar/0b7c937b3071a76c73c929507d484fdb" />
@@ -24,9 +40,8 @@ ${set_locale(lang)}
             <h2>Dhruv Baldawa</h2>
             ${social_icons()}
         </div>
-
+        <hr>
         <%block name="sidebar">
-            <hr>
             <div class="box">
                 <div class="media-heading"><strong>GDG Devfest 2013</strong></div>
                 <ul>
