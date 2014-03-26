@@ -4,18 +4,27 @@
 <%inherit file="base.tmpl"/>
 <%block name="content">
     % for post in posts:
-        <div class="postbox">
-        <p class="post-title"><a href="${post.permalink()}">${post.title()}</a></p>
-        ${post.text(teaser_only=index_teasers)}
-        % if not post.meta('nocomments'):
-            ${comments.comment_link(post.permalink()+"#disqus_thread", post.base_path)}
-        % endif
-        <div class="post-details">
-            ${helper.post_social(post)}
-            <small>
-                 ${messages("Posted")}: <time class="published easydate" datetime="${post.date.isoformat()}">${post.formatted_date(date_format)}</time>
-                  | by ${blog_author}
-            </small></div>
+        <div class="post-box">
+            <div class="post-top">
+                <div class="post-title">
+                    <a href="${post.permalink()}">
+                        <h2>${post.title()}</h2>
+                    </a>
+                </div>
+            </div>
+            <div class="post-content">
+                ${post.text(teaser_only=index_teasers)}
+                % if not post.meta('nocomments'):
+                    ${comments.comment_link(post.permalink()+"#disqus_thread", post.base_path)}
+                % endif
+            </div>
+            ## <div class="post-details">
+            ##    ${helper.post_social(post)}
+            ##    <small>
+            ##         ${messages("Posted")}: <time class="published easydate" datetime="${post.date.isoformat()}">${post.formatted_date(date_format)}</time>
+            ##          | by ${blog_author}
+            ##    </small>
+            ## </div>
         </div>
     % endfor
     ${helper.html_pager()}
