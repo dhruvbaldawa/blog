@@ -9,6 +9,12 @@ body {
     font-family: "Ubuntu", "Roboto", "Helvetica Neue", Arial, sans-serif;
 }
 
+h1, h2 {
+    font-family: "Quicksand", "Helvetica Neue", Arial, sans-serif;
+    color: #000;
+    line-height: 1.2;
+}
+
 /*Homepage*/
 .sidepanel {
     background: #2980b9;
@@ -66,12 +72,6 @@ img {
 .post-box a {
     text-decoration: none;
     color: #000;
-}
-
-.post-title h2 {
-    font-family: "Quicksand", "Helvetica Neue", Arial, sans-serif;
-    color: #000;
-    line-height: 1.2;
 }
 
 .post-content {

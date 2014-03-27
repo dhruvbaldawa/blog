@@ -8,14 +8,27 @@
 
 /* Medium screens only */
 @media only screen and (min-width: 40.063em) and (max-width: 64.0em) {
-h2 {
-    font-size: 1.8em;
-}
+
+h1 { font-size: 2.5rem; } /* 40/16rem */
+h2 { font-size: 2.0625rem; } /* 33/16rem */
+h3 { font-size: 1.5rem; } /* 24/16rem */
+h4 { font-size: 1.25rem; } /* 20/16rem */
+h5 { font-size: 1.125rem; } /* 16/16rem */
+h6 { font-size: 1rem; }
+
 } /* min-width 641px, medium screens */
 
 
 /*Large screens and up only*/
 @media only screen and (min-width: 64.063em) {
+
+h1 { font-size: 3rem; } /* 44/16rem */
+h2 { font-size: 2.3125rem; } /* 37/16rem */
+h3 { font-size: 1.6875rem; } /* 27/16rem */
+h4 { font-size: 1.4375rem; } /* 23/16rem */
+h5 { font-size: 1.125rem; } /* 18/16rem */
+h6 { font-size: 1rem; }
+
 .sidepanel-main {
     padding: 0 30px;
 }
