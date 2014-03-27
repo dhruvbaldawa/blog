@@ -14,17 +14,14 @@
             </div>
             <div class="post-content">
                 ${post.text(teaser_only=index_teasers)}
+            </div>
+            <div class="post-details">
+                ${helper.post_social(post)}
+                posted <time class="published easydate" datetime="${post.date.isoformat()}">${post.formatted_date(date_format)}</time> &middot;
                 % if not post.meta('nocomments'):
                     ${comments.comment_link(post.permalink()+"#disqus_thread", post.base_path)}
                 % endif
             </div>
-            ## <div class="post-details">
-            ##    ${helper.post_social(post)}
-            ##    <small>
-            ##         ${messages("Posted")}: <time class="published easydate" datetime="${post.date.isoformat()}">${post.formatted_date(date_format)}</time>
-            ##          | by ${blog_author}
-            ##    </small>
-            ## </div>
         </div>
     % endfor
     ${helper.html_pager()}
