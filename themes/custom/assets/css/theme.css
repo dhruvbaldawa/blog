@@ -83,6 +83,10 @@ img {
     text-align: right;
 }
 
+.post-details time {
+    color: #777;
+}
+
 .footerbox {padding: 15px; text-align: center; margin-bottom: 15px;}
 
 /* Override Nikola styles */
