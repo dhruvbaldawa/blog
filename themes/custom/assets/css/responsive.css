@@ -4,8 +4,15 @@
         position: fixed;
         bottom: 0;
 }
-
 } /* min-width 641px, medium screens */
+
+/* Medium screens only */
+@media only screen and (min-width: 40.063em) and (max-width: 64.0em) {
+h2 {
+    font-size: 1.8em;
+}
+} /* min-width 641px, medium screens */
+
 
 /*Large screens and up only*/
 @media only screen and (min-width: 64.063em) {
