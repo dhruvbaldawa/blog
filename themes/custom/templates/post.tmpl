@@ -14,14 +14,16 @@ ${helper.twitter_card_information(post)}
                 </a>
             </div>
         </div>
-        <small>
-            ${messages("Posted")}: <time class="published easydate" datetime="${post.date.isoformat()}">${post.formatted_date(date_format)}</time>
-            ${helper.html_translations(post)}
-            ${helper.html_tags(post)}
-        </small>
         <div class="post-content">
             ${post.text()}
         </div>
+        <div class="post-details">
+            posted <time class="published easydate" datetime="${post.date.isoformat()}">${post.formatted_date(date_format)}</time>
+            <div class="text-right">
+                <p>${helper.html_tags(post)}</p>
+            </div>
+        </div>
+
         ${helper.post_social(post)}
         <hr>
         ${helper.html_pager(post)}
