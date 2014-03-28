@@ -3,9 +3,9 @@
 <%block name="content">
     <!--Body content-->
     <h1>${title}</h1>
-    <ul class="unstyled bricks">
+    <ul class="inline-list">
     % for text, link in items:
-        <li><a class="reference" href="${link}">${text}</a></li>
+        <li><a class="tag" href="${link}"><i class="fi-price-tag"></i> ${text}</a></li>
     % endfor
     </ul>
     <!--End of body content-->
