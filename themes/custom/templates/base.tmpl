@@ -18,18 +18,16 @@ ${set_locale(lang)}
 <div class="sidepanel small-12 medium-4 large-4">
     <div class="contain-to-grid">
         <nav class="top-bar" data-topbar>
-        <ul class="title-area">
-          <li class="name"></li>
-          <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
-        </ul>
-        <section class="top-bar-section">
-            <!-- Left Nav Section -->
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Code</a></li>
-                <li><a href="#">Categories</a></li>
+            <ul class="title-area">
+              <li class="name"></li>
+              <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
             </ul>
-        </section>
+            <section class="top-bar-section">
+                <!-- Left Nav Section -->
+                <ul>
+                    ${html_sidebar_links()}
+                </ul>
+            </section>
         </nav>
     </div>
     <div class="sidepanel-main small-12 end">

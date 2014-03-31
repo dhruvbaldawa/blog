@@ -5,7 +5,7 @@
 .. title: [Q] What are the best Python scripts you've ever written?
 .. slug: q-what-are-the-best-python-scripts-youve-ever-written
 
-**Win `Indian Premier League (cricket)`_ tickets**
+**Win** `Indian Premier League (cricket)`_ **tickets**
 Everybody knows how hard it is to get IPL tickets.
 CocaCola had an online voting contest, where you upload your picture and other Facebook users have to vote on the picture, at the end of the day the user with most votes will get 2 IPL tickets. I used the following script, and won 2 tickets (twice). FYI, MI v/s CSK and MI v/s RCB ;)
 
