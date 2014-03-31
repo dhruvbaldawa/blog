@@ -13,23 +13,9 @@ ${set_locale(lang)}
     ${extra_head_data}
 </head>
 <body>
-<div>
+<div data-equalizer>
 <!--Body content-->
-<div class="sidepanel small-12 medium-4 large-4">
-    <div>
-        <nav class="top-bar" data-topbar>
-            <ul class="title-area">
-              <li class="name"></li>
-              <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
-            </ul>
-            <section class="top-bar-section">
-                <!-- Left Nav Section -->
-                <ul>
-                    ${html_sidebar_links()}
-                </ul>
-            </section>
-        </nav>
-    </div>
+<div class="sidepanel small-12 medium-4 large-4 column" data-equalizer-watch>
     <div class="sidepanel-main small-12 end">
         <div class="profile-box text-center">
             <a href="#">
@@ -47,15 +33,20 @@ ${set_locale(lang)}
                     <li><a href="http://www.dhruvb.com/pyfeedback" target="_blank">Python session feedback</a></li>
                 </ul>
             </div>
+            <ul style="list-style: none; text-transform: lowercase;">
+                ${html_sidebar_links()}
+            </ul>
+
         </%block>
     </div>
 </div>
-<div class="content small-12 medium-6 medium-offset-5 large-6 large-offset-5 column end">
+<div class="content small-12 medium-6 medium-push-1 large-6 column end" data-equalizer-watch>
     <%block name="content"></%block>
+    <div class="footer">
+        ${content_footer}
+    </div>
 </div>
-<div class="footer small-12 medium-6 medium-offset-5 large-6 large-offset-5 column end">
-    ${content_footer}
-</div>
+
 <!--End of body content-->
 </div>
 
