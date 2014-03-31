@@ -32,6 +32,21 @@
     line-height: 35px;
 }
 
+.site-menu {
+    list-style: none;
+    font-size: 24px;
+    text-align: right;
+    line-height: 1.2;
+    text-transform: lowercase;
+    padding-right: 30px;
+    margin-top: 25px;
+    font-weight: 300;
+}
+
+.site-menu a {
+    border: 0;
+}
+
 } /* min-width 641px, medium screens */
 
 /* Medium screens only */
@@ -43,6 +58,11 @@ h3 { font-size: 1.5rem; } /* 24/16rem */
 h4 { font-size: 1.25rem; } /* 20/16rem */
 h5 { font-size: 1.125rem; } /* 16/16rem */
 h6 { font-size: 1rem; }
+
+.site-menu {
+    font-size: 20px;
+    padding-right: 15px;
+}
 
 } /* min-width 641px, medium screens */
 

@@ -59,9 +59,9 @@
                 external = ''
         %>
         % if rel_link(permalink, url) == "#":
-            <li class="active"><a href="${url}" ${external}>${text}</a>
+            <li class="roll active"><a href="${url}" ${external}>${text}</a>
         %else:
-            <li><a href="${url}" ${external}>${text}</a>
+            <li><a class="roll" href="${url}" ${external}>${text}</a>
         %endif
     %endfor
 </%def>
