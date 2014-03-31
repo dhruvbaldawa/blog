@@ -4,6 +4,34 @@
         position: fixed;
         bottom: 0;
 }
+
+.top-bar, .contain-to-grid, .top-bar-section ul li > a, .top-bar-section ul li > a:hover {
+    background: transparent !important;
+}
+
+.top-bar-section {
+    display: block;
+    margin: 0px auto;
+    width: 100%;
+}
+
+.top-bar-section ul {
+    list-style-type: none;
+    text-align: center;
+    display: inherit !important;
+}
+.top-bar-section ul li {
+    display: inline-block;
+    float: none;
+}
+
+.top-bar-section ul li > a {
+    text-transform: uppercase;
+    font-size: 12px;
+    padding: 0 10px;
+    line-height: 35px;
+}
+
 } /* min-width 641px, medium screens */
 
 /* Medium screens only */
