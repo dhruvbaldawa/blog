@@ -1,12 +1,13 @@
 /* Medium screens and up only */
 @media only screen and (min-width: 40.063em) {
-/*.sidepanel {
-        position: fixed;
-        bottom: 0;
-}*/
+.sidepanel {
+    position: fixed;
+    bottom: 0;
+}
 
 .top-bar, .contain-to-grid, .top-bar-section ul li > a, .top-bar-section ul li > a:hover {
     background: transparent !important;
+    position: fixed;
 }
 
 .top-bar-section {

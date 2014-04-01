@@ -11,7 +11,7 @@ body {
     margin: 0;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4, h5, h6 {
     font-family: "Quicksand", "Helvetica Neue", Arial, sans-serif;
     color: #000;
     line-height: 1.2;
@@ -19,7 +19,7 @@ h1, h2, h3 {
 
 /*Homepage*/
 .sidepanel {
-    background: #2980b9;
+    background: url('images/sidepanel-bg.jpg') top left no-repeat scroll #ccc;
     color: white !important;
     top: 0;
     left: 0;
@@ -30,11 +30,12 @@ h1, h2, h3 {
 }
 
 .sidepanel-main {
-    /*unsetting the following styles will switch off fixed mode*/
-    width: inherit;
-    position: fixed;
+    /*setting the following styles will switch off fixed mode*/
+/*    width: inherit;
+    position: fixed;*/
     top: 0;
-    /*height: 100%;*/
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
 }
 
 .sidepanel-main a {
