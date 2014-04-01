@@ -17,7 +17,7 @@
             </div>
             <div class="post-details">
                 ${helper.post_social(post)}
-                posted <time class="published easydate" datetime="${post.date.isoformat()}">${post.formatted_date(date_format)}</time> &middot;
+                posted <time class="published easydate" datetime="${post.date.isoformat()}">${post.formatted_date(date_format)}</time> &middot; ${post.reading_time} min. read &middot;
                 % if not post.meta('nocomments'):
                     ${comments.comment_link(post.permalink()+"#disqus_thread", post.base_path)}
                 % endif

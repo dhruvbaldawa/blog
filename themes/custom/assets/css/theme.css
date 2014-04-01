@@ -20,6 +20,7 @@ h1, h2, h3, h4, h5, h6 {
 /*Homepage*/
 .sidepanel {
     background: url('images/sidepanel-bg.jpg') top left no-repeat scroll #ccc;
+    background-size: cover;
     color: white !important;
     top: 0;
     left: 0;
