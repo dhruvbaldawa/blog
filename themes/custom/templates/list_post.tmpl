@@ -1,14 +1,22 @@
 ## -*- coding: utf-8 -*-
 <%inherit file="base.tmpl"/>
 <%block name="content">
-        <!--Body content-->
-        <div class="postbox">
-        <h1>${title}</h1>
-        <ul class="unstyled">
-        % for post in posts:
-            <li><a href="${post.permalink()}">[<abbr class="easydata">${post.formatted_date(date_format)}</abbr>] ${post.title()}</a>
-        % endfor
-        </ul>
+    <!--Body content-->
+    <h1>${title}</h1>
+    <div class="post-box">
+    % for post in posts:
+        <div class="post-top">
+            <div class="post-title">
+                <a href="${post.permalink()}">
+                    <h4>${post.title()}</h4>
+                </a>
+            </div>
         </div>
-        <!--End of body content-->
+        <div class="post-details">
+            posted <time class="published easydate" datetime="${post.date.isoformat()}">${post.formatted_date(date_format)}</time>
+        </div>
+        <hr>
+    % endfor
+    </div>
+    <!--End of body content-->
 </%block>

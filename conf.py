@@ -72,6 +72,7 @@ TRANSLATIONS_PATTERN = "{path}.{lang}.{ext}"
 # You should provide a key-value pair for each used language.
 NAVIGATION_LINKS = {
     DEFAULT_LANG: (
+        ('/', 'Home'),
         ('https://www.github.com/dhruvbaldawa', 'About Me'),
         ('/resume', 'My Resume'),
         ('/presentations', 'My Presentations'),
