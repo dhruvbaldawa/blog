@@ -54,7 +54,22 @@ ${set_locale(lang)}
         ${content_footer}
     </div>
 </div>
-
+<div id="ie-box">
+  <div id="ie-warning-overlay" class="transparent"></div>
+  <div id="ie-warning-wrap" class="opaque"> <a href="#" class="close" id="close-btn" onClick="document.getElementById('ie-box').style.display = 'none'; this.style.display = 'none';">close this window</a>
+    <div id="ie-warning-msg">
+      <h3>WARNING!</h3>
+      <p>You are using an old version of Internet Explorer that may cause this site to display improperly or not at all.</p>
+      <p>Please consider downloading one of the following browsers to get the optimal user experience:</p>
+      <ol>
+        <li><strong>Google Chrome:</strong> <a href="https://www.google.com/chrome" target="_blank">Download from Google</a> <span>- Recommended</span></li>
+        <li><strong>Mozilla FireFox:</strong> <a href="http://www.mozilla.org/en-US/firefox/new/" target="_blank">Download from Mozilla</a></li>
+        <li><strong>Internet Explorer 9:</strong> <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home" target="_blank">Download from Microsoft</a></li>
+      </ol>
+      <p>If you wish to continue you may close this window, but it is highly recommended that you update first.</p>
+    </div>
+  </div>
+</div>
 <!--End of body content-->
 </div>
 

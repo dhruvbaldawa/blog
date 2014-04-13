@@ -19,7 +19,7 @@
                 ${helper.post_social(post)}
                 posted <time class="published easydate" datetime="${post.date.isoformat()}">${post.formatted_date(date_format)}</time> &middot;
                 % if not post.meta('nocomments'):
-                    ${comments.comment_link(post.permalink()+"#disqus_thread", post.base_path)}
+                    <i class="fi-comments"></i>${comments.comment_link(post.permalink()+"#disqus_thread", post.base_path)}
                 % endif
             </div>
         </div>

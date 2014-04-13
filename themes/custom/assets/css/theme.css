@@ -17,6 +17,9 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.2;
 }
 
+#ie-box {
+    display: none;
+}
 /*Homepage*/
 .sidepanel {
     background: url('images/sidepanel-bg.jpg') top left no-repeat scroll #ccc;
