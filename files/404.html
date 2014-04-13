@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="${lang}" ><![endif]-->
+<html class="no-js" lang="${lang}">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta charset="utf-8">
+    <title>404 - Page not found</title>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/foundation-essential/5.2.2/css/normalize.min.css" rel="stylesheet" type="text/css">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/foundation-essential/5.2.2/css/foundation.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/foundation-essential/5.2.2/js/vendor/jquery.js" type="text/javascript"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fuse.js/1.0.1/fuse.min.js"type="text/javascript"></script>
+    <style>
+        .social-icon {
+            font-size: 1.5em;
+        }
+        #suggestions-box {
+            margin-top: 2em;
+        }
+        .footer {
+            margin-top: 4em;
+        }
+
+    </style>
+</head>
+<body>
+<!-- First Band (Image) -->
+<div class="row">
+    <div class="large-12 columns">
+        <h1 class="text-center"><i style="color: #f00; font-size: 3.5em;" class="fi-alert"></i></h1>
+        <h2 class="text-center">OK, this is embarrassing.</h2>
+        <hr>
+        <div class="large-12 text-center">
+            <p class="subheader">The page you are looking for was either <strong><em>moved</em></strong> or <strong><em>does not exist.</em></strong></p>
+            <p class="subheader">Please focus on the above icon while I <em>magically</em> try to find the page you are looking for.</p>
+        </div>
+    </div>
+</div>
+<!-- Second Band (Image Left with Text) -->
+<div class="row">
+    <div class="large-12 columns">
+        <div class="large-12 columns text-center" id="suggestions-box">
+            <div id="suggestions-text"> <img src="http://upload.wikimedia.org/wikipedia/commons/9/91/LoadingX.gif" alt=""> reciting magical verses...</div>
+            <div id="suggestions-loading"></div>
+        </div>
+    </div>
+</div>
+<div class="row">
+<div class="footer large-12 columns">
+  <hr/>
+  <div class="row">
+    <div class="large-12 columns text-center">
+      <p>designed by <a href="http://www.dhruvb.com/">me</a> with help from <a href="http://punchagan.muse-amuse.in/">punchagan</a></p>
+    </div>
+  </div>
+</div>
+</div>
+<script type="text/javascript">
+$(document).ready(
+  function(){
+
+    var get_search_string = function(){
+      var url = document.location.href;
+      var search_string = url.replace(/.*\/(.*)/g, "$1");
+
+      if (search_string.length < 32) {
+        return search_string;
+      } else {
+
+        if (tipuesearch_stop_words.indexOf('html') == -1) {
+          tipuesearch_stop_words.push("html");
+        }
+        var search_terms = search_string.split('-');
+        search_terms.forEach(function(term, idx){
+          if (tipuesearch_stop_words.indexOf(term)) {
+            search_terms.splice(idx, 1);
+          }
+        });
+        return search_terms.join('-').substring(0, 31);
+      }
+    };
+
+    var show_results = function(entries) {
+      var entries_ul = $('<ul class="entries no-bullet">');
+      if (entries.length == 0) {
+        var text = 'Seems like I do require some practice, please don\'t \
+         report it to my master <a href="http://www.dhruvb.com">here</a>. \
+        Please don\'t.';
+        $('#suggestions-text').html(text);
+      } else {
+        $('#suggestions-text').html('<strong>poof!</strong> I think its one of the following:');
+        $('#suggestions').append(entries_ul);
+        entries.forEach(function(entry){
+          var entry_li = $('<a>').attr('href', entry.loc).text(entry.title)
+                .appendTo($('<li>').appendTo(entries_ul));
+        });
+        $("#suggestions-box").append(entries_ul);
+      };
+    };
+
+    $.getJSON('/blog/assets/js/tipuesearch_content.json').done(
+      function(data){
+        var options = {
+          keys: ['text', 'title', 'loc']
+        };
+        var fuse = new Fuse(data.pages, options);
+        var results = fuse.search(get_search_string());
+        console.log(results);
+        results.splice(5);
+        show_results(results);
+      });
+});
+</script>
+</body>
