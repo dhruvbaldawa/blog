@@ -20,6 +20,7 @@ h1, h2, h3, h4, h5, h6 {
 #ie-box {
     display: none;
 }
+
 /*Homepage*/
 .sidepanel {
     background: url('images/sidepanel-bg.jpg') top left no-repeat scroll #ccc;
@@ -45,7 +46,6 @@ h1, h2, h3, h4, h5, h6 {
 .sidepanel-main a {
     color: #fff;
     text-decoration: none;
-    border-bottom: 1px dotted #fff;
 }
 
 .profile-box {
@@ -62,10 +62,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .social-icons {
     font-size: 26px;
-}
-
-.social-icons a {
-    border: 0; /*revert border bottom by .sidepanel-main*/
 }
 
 .content {
