@@ -5,8 +5,8 @@
 .. link:
 .. description:
 
-Here are slides and related resources to all the presentations that I have
-given at various events and conferences.
+.. Here are slides and related resources to all the presentations that I have
+.. given at various events and conferences.
 
 Introduction to Python
 ----------------------
