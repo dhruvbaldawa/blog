@@ -76,10 +76,10 @@ img {
 }
 
 .back-btn {
-    position: relative;
-    float: right;
     margin-top: 10px;
     font-size: 20px;
+    position: absolute;
+    right: 10px;
 }
 
 .back-btn .button {
@@ -88,7 +88,7 @@ img {
 }
 
 .back-btn .button:hover {
-    background: rgba(255, 255, 255, 0.35);
+    background: rgba(200, 200, 255, 0.35);
 }
 
 .post-box {
