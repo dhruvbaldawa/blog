@@ -71,9 +71,9 @@ TRANSLATIONS_PATTERN = "{path}.{lang}.{ext}"
 NAVIGATION_LINKS = {
     DEFAULT_LANG: (
         ('/', 'Home'),
-        ('https://www.github.com/dhruvbaldawa', 'About Me'),
-        ('/resume', 'My Resume'),
-        ('/presentations', 'My Presentations'),
+        ('https://www.github.com/dhruvbaldawa', 'My Code'),
+        # ('/resume', 'My Resume'),
+        ('/pages/presentations/', 'My Presentations'),
         ('/archive.html', 'Blog Archives'),
         ('/tags/index.html', 'Tags'),
     ),
@@ -126,8 +126,8 @@ POSTS = (
 )
 
 PAGES = (
-    ("stories/*.rst", "stories", "story.tmpl"),
-    ("stories/*.txt", "stories", "story.tmpl"),
+    ("stories/*.rst", "pages", "story.tmpl"),
+    ("stories/*.txt", "pages", "story.tmpl"),
     ("presentations/*.txt", "presentations", "presentation.tmpl"),
     ("presentations/*.rst", "presentations", "presentation.tmpl"),
 )
@@ -257,9 +257,13 @@ OUTPUT_FOLDER = 'output'
 # argument.
 #
 # By default, there are no filters.
-# FILTERS = {
-#    ".jpg": ["jpegoptim --strip-all -m75 -v %s"],
-# }
+import cssmin
+import jsmin
+FILTERS = {
+   # ".jpg": ["jpegoptim --strip-all -m75 -v %s"],
+   ".css": [lambda x: cssmin.cssmin(open(x).read())],
+   ".js": [lambda x: jsmin.jsmin(open(x).read())],
+}
 
 # Expert setting! Create a gzipped copy of each generated file. Cheap server-
 # side optimization for very high traffic sites or low memory servers.
@@ -548,7 +552,7 @@ BODY_END = """
 # is served from the NetDNA CDN
 # Set this to False if you want to host your site without requiring access to
 # external resources.
-# USE_CDN = False
+USE_CDN = True
 
 # Extra things you want in the pages HEAD tag. This will be added right
 # before </HEAD>
