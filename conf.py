@@ -270,8 +270,8 @@ def _minify(fn, filename):
 
 FILTERS = {
     # ".jpg": ["jpegoptim --strip-all -m75 -v %s"],
-    ".css": [lambda x: _minify(cssmin.cssmin, x)],
-    ".js": [lambda x: _minify(jsmin.jsmin, x)],
+    # ".css": [lambda x: _minify(cssmin.cssmin, x)],
+    # ".js": [lambda x: _minify(jsmin.jsmin, x)],
 }
 
 # Expert setting! Create a gzipped copy of each generated file. Cheap server-
@@ -561,7 +561,7 @@ BODY_END = """
 # is served from the NetDNA CDN
 # Set this to False if you want to host your site without requiring access to
 # external resources.
-USE_CDN = True
+# USE_CDN = True
 
 # Extra things you want in the pages HEAD tag. This will be added right
 # before </HEAD>
@@ -611,7 +611,7 @@ USE_CDN = True
 TIMEZONE = 'Asia/Kolkata'
 
 # If webassets is installed, bundle JS and CSS to make site loading faster
-# USE_BUNDLES = True
+USE_BUNDLES = False
 
 # Plugins you don't want to use. Be careful :-)
 # DISABLED_PLUGINS = ["render_galleries"]
@@ -664,12 +664,15 @@ LOGGING_HANDLERS = {
 # Put in global_context things you want available on all your templates.
 # It can be anything, data, functions, modules, etc.
 
-GLOBAL_CONTEXT_DEPLOY = {
-    'EFF_PATH': '/blog'
-}
-
 GLOBAL_CONTEXT = {
-    'EFF_PATH': ''  # '' for local, '/blog' for production
+    'EFF_PATH': '/',
 }
 
-# GLOBAL_CONTEXT.update(GLOBAL_CONTEXT_DEPLOY)
+# Deployment settings
+# USE_BUNDLES = True
+# USE_CDN = True
+# FILTERS = {
+    # ".jpg": ["jpegoptim --strip-all -m75 -v %s"],
+    # ".css": [lambda x: _minify(cssmin.cssmin, x)],
+    # ".js": [lambda x: _minify(jsmin.jsmin, x)],
+#}
