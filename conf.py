@@ -259,10 +259,19 @@ OUTPUT_FOLDER = 'output'
 # By default, there are no filters.
 import cssmin
 import jsmin
+
+
+def _minify(fn, filename):
+    with open(filename, 'r') as f:
+        contents = f.read()
+    with open(filename, 'w') as f:
+        f.write(fn(contents))
+
+
 FILTERS = {
-   # ".jpg": ["jpegoptim --strip-all -m75 -v %s"],
-   ".css": [lambda x: cssmin.cssmin(open(x).read())],
-   ".js": [lambda x: jsmin.jsmin(open(x).read())],
+    # ".jpg": ["jpegoptim --strip-all -m75 -v %s"],
+    ".css": [lambda x: _minify(cssmin.cssmin, x)],
+    ".js": [lambda x: _minify(jsmin.jsmin, x)],
 }
 
 # Expert setting! Create a gzipped copy of each generated file. Cheap server-
