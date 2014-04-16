@@ -639,7 +639,7 @@ ENABLED_EXTRAS = [
 # past.  Useful especially if your post titles are in <h1> tags too, for
 # example.
 # (defaults to 1.)
-# DEMOTE_HEADERS = 1
+DEMOTE_HEADERS = 1
 
 # You can configure the logging handlers installed as plugins or change the
 # log level of the default stdout handler.
