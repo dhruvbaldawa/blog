@@ -367,7 +367,7 @@ LICENSE = """ All rights reserved. """
 
 # A small copyright notice for the page footer (in HTML).
 # Default is ''
-CONTENT_FOOTER = '{license} <br /> &copy; {date} <a href="http://www.dhruvb.com/">{author}</a> - Powered by <a href="http://nikola.ralsina.com.ar">Nikola</a>'
+CONTENT_FOOTER = '{license} <br /> &copy; {date} <a href="http://www.dhruvb.com/">{author}</a> - Powered by <a href="http://www.getnikola.com" target="_blank">Nikola</a>'
 CONTENT_FOOTER = CONTENT_FOOTER.format(license=LICENSE,
                                        author=BLOG_AUTHOR,
                                        date=time.gmtime().tm_year)

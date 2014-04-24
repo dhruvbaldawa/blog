@@ -2,3 +2,5 @@ assets/css/all.css=theme.css,responsive.css,rst.css,code.css,colorbox.css
 assets/css/all-nocdn.css=../external/foundation/css/normalize.css,../external/foundation/css/foundation.min.css,theme.css,responsive.css,rst.css,code.css,colorbox.css
 assets/js/all-nocdn.js=../external/foundation/js/vendor/modernizr.js,../external/foundation/js/vendor/jquery.js,../external/foundation/js/vendor/fastclick.js,../external/foundation/js/foundation.min.js,../external/colorbox/jquery.colorbox-min.js,jquery.easydate.js,script.js
 assets/js/all.js=jquery.easydate.js,../external/colorbox/jquery.colorbox-min.js,script.js
+assets/css/reveal-nocdn.css=../external/reveal.js/css/reveal.min.css,../external/reveal.js/lib/css/zenburn.css
+assets/js/reveal-nocdn.js=../external/reveal.js/lib/js/head.min.js,../external/reveal.js/js/reveal.js,../external/reveal.js/plugin/highlight/highlight.js,../external/reveal.js/plugin/zoom-js/zoom.js,../external/reveal.js/plugin/notes/notes.js,../external/reveal.js/lib/js/classList.js,../external/reveal.js/plugin/markdown/marked.js,../external/reveal.js/plugin/markdown/markdown.js
