@@ -120,11 +120,9 @@
     %endfor
 </%def>
 
-<%def name="back_button()">
+<%def name="back_button(class_)">
     %if rel_link(permalink, "/") != "#":
-        <div class="back-btn show-for-medium-up">
-            <a class="button radius" href="javascript:history.back(-1)"><i class="fi-arrow-left"></i> back</a>
-        </div>
+        <a class="${class_}" href="javascript:history.back(-1)"><i class="fi-arrow-left"></i> back</a>
     %endif
 </%def>
 

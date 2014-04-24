@@ -2,6 +2,14 @@
 .post-content {
     text-align: left;
 }
+
+ul.title-area li.name h1 {
+    font-family: inherit;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: inherit;
+    font-size: 13px;
+}
 } /* max-width 640px, mobile-only styles, use when QAing mobile issues */
 
 

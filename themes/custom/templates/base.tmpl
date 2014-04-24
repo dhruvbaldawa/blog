@@ -16,20 +16,24 @@ ${set_locale(lang)}
 <div>
 <!--Body content-->
 <div class="sidepanel small-12 medium-4 large-4 column">
-    <nav class="top-bar show-for-small-only" data-topbar>
-        <ul class="title-area">
-          <li class="name"></li>
-          <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
-        </ul>
-        <section class="top-bar-section">
-            <!-- Left Nav Section -->
-            <ul>
-                ${html_sidebar_links()}
+    <div class="show-for-small-only fixed">
+        <nav class="top-bar" data-topbar>
+            <ul class="title-area">
+              <li class="name"><h1>${back_button('')}</h1></li>
+              <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
             </ul>
-        </section>
-    </nav>
+            <section class="top-bar-section">
+                <!-- Left Nav Section -->
+                <ul>
+                    ${html_sidebar_links()}
+                </ul>
+            </section>
+        </nav>
+    </div>
     <div class="sidepanel-main small-12 column end">
-        ${back_button()}
+        <div class="back-btn show-for-medium-up">
+            ${back_button("button radius")}
+        </div>
         <div class="profile-box text-center">
             <a class="th radius" href="/">
                 <img class="profile-pic thumbnail round" src="http://www.gravatar.com/avatar/0b7c937b3071a76c73c929507d484fdb" />
