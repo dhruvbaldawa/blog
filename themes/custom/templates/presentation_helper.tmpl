@@ -7,17 +7,18 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <link rel="stylesheet" href="/reveal/css/reveal.min.css">
-    <link rel="stylesheet" href="/reveal/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="/assets/external/reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="/assets/external/reveal.js/css/theme/default.css" id="theme">
     <!-- For syntax highlighting -->
-    <link rel="stylesheet" href="/reveal/lib/css/zenburn.css">
+    <link rel="stylesheet" href="/assets/external/reveal.js/lib/css/zenburn.css">
+
     <!-- If the query includes 'print-pdf', use the PDF print sheet -->
     <script>
-        document.write( '<link rel="stylesheet" href="${EFF_PATH}/reveal/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        document.write( '<link rel="stylesheet" href="/assets/external/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
     </script>
 
     <!--[if lt IE 9]>
-    <script src="/reveal/lib/js/html5shiv.js"></script>
+    <script src="/assets/external/reveal.js/lib/js/html5shiv.js"></script>
     <![endif]-->
     <style type="text/css">
         .bottom-sticky {
@@ -37,19 +38,19 @@
         history: true,
         center: false,
 
-        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        theme: Reveal.getQueryHash().theme || 'default', // available themes are in /css/theme
         transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
 
         // Optional libraries used to extend on reveal.js
         dependencies: [
-            { src: '${EFF_PATH}/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-            { src: '${EFF_PATH}/reveal/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-            { src: '${EFF_PATH}/reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-             { src: '${EFF_PATH}/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-             { src: '${EFF_PATH}/reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-             { src: '${EFF_PATH}/reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-            // { src: '${EFF_PATH}/reveal/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
-            // { src: '${EFF_PATH}/reveal/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+            { src: '/assets/external/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            { src: '/assets/external/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: '/assets/external/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+             { src: '/assets/external/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+             { src: '/assets/external/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+             { src: '/assets/external/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+            // { src: '/assets/external/reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+            // { src: '/assets/external/reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
         ]
     });
 </%def>
