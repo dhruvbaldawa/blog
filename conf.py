@@ -668,10 +668,9 @@ GLOBAL_CONTEXT = {
 }
 
 # Deployment settings
-# USE_BUNDLES = True
-# USE_CDN = True
-# FILTERS = {
-    # ".jpg": ["jpegoptim --strip-all -m75 -v %s"],
-    # ".css": [lambda x: _minify(cssmin.cssmin, x)],
-    # ".js": [lambda x: _minify(jsmin.jsmin, x)],
-#}
+USE_BUNDLES = True
+USE_CDN = True
+FILTERS = {
+    ".css": [lambda x: _minify(cssmin.cssmin, x)],
+    ".js": [lambda x: _minify(jsmin.jsmin, x)],
+}
