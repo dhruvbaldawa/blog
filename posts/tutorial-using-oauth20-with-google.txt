@@ -24,7 +24,8 @@ These are some of the important links which contain important information regard
 
 However, Google does provide with API libraries for connecting to Google+, but there is a simple and light-weight method using just URL and JSON parsing libraries (curl for PHP and urllib2, json for Python). We will see into this.
 
-**OAuth Basics**
+OAuth Basics
+============
 
 We will however not dive into details of OAuth authentication, but will summarize the entire process of authorization into very basic steps. Let's consider **you(developer)** needs to access the data of user logging into your website from any **service(Google+)**.
 
@@ -32,7 +33,8 @@ We will however not dive into details of OAuth authentication, but will summariz
 2. When a user logs into your website, if he/she wants you to access their Google+ data, the Google+ **server is contacted** using YOUR **client id**, and the **respective permissions that are required** are showed to the user, it is then when the user can either **allow or disallow** YOU to access his/her data.
 3. Once the user **allows** you, then Google+ provides an **access token** for that particular user, using this token and your client key, secret and API key collectively you can then **access the data**.
 
-**Using Google+ API**
+Using Google+ API
+=================
 
 **Step 1: Getting yourself authorized.**
 
@@ -62,7 +64,8 @@ Note: You can use "**me**" (without quotes) in {user id} to get data related to 
 
 **Step 7:** Everything done. Just read the documentation from the websites given above for advanced usage. Or you can also view the above video for a rough overview.
 
-**Other Resources:**
+Other Resources
+===============
 
 * **Code Samples:** `GitHub <https://github.com/dhruvbaldawa/Tutorials/tree/master/google+>`_
 * **Presentation:** `Scribd <http://www.scribd.com/doc/65747648/Using-Google-API-with-Python-and-PHP>`_

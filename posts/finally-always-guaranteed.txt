@@ -7,15 +7,8 @@
 
 Let's start off with a question. Given the following code sample:
 
-.. code:: python
-
-    def foo():
-        try:
-            return True
-        except:
-            pass
-        finally:
-            return False
+.. gist:: 11271318
+    :file: question.py
 
 What do you think the call to ``foo()`` will return ?
 
@@ -47,15 +40,8 @@ How do we solve this ?
 
 Just use ``else``:
 
-.. code:: python
-
-    def foo():
-        try:
-            return True
-        except:
-            pass
-        else:
-            return False
+.. gist:: 11271318
+    :file: answer.py#L6
 
 The ``else`` block is only executed when we **reach the end** of the ``try``
 block.

@@ -32,7 +32,8 @@ This was more of a learning project for me, trying to build complete javascript
 applications for a Python developer like was a completely different experience,
 a journey to explore CoffeeScript, Node.js and Test-driven development(TDD).
 
-**How to use**
+How to use
+==========
 
 1. Go to http://drophere.herokuapp.com/.
 2. Drag *any image or text* file from your computer.
