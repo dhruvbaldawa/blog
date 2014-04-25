@@ -128,8 +128,7 @@ POSTS = (
 PAGES = (
     ("stories/*.rst", "pages", "story.tmpl"),
     ("stories/*.txt", "pages", "story.tmpl"),
-    ("presentations/*.txt", "presentations", "presentation.tmpl"),
-    ("presentations/*.rst", "presentations", "presentation.tmpl"),
+    ("presentations/*.html", "presentations", "presentation.tmpl"),
 )
 
 # One or more folders containing files to be copied as-is into the output.
@@ -639,7 +638,7 @@ ENABLED_EXTRAS = [
 # past.  Useful especially if your post titles are in <h1> tags too, for
 # example.
 # (defaults to 1.)
-DEMOTE_HEADERS = 0
+DEMOTE_HEADERS = 1
 
 # You can configure the logging handlers installed as plugins or change the
 # log level of the default stdout handler.
