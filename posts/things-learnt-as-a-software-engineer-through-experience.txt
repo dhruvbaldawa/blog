@@ -41,7 +41,7 @@ The heading says all. No matter how much thought you have put into the
 designing or architecting the new project/module, your code will need
 refactor, its just unavoidable. **"Always be ready to throw one away."**
 
-**Additional reading:** `Case 105 Navigation`
+**Additional reading:** `Case 105 Navigation`_
 
 Document your code and project
 ==============================
