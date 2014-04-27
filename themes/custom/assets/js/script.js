@@ -4,4 +4,8 @@ $(document).ready(function() {
     jQuery(function($) {
         $(".easydate").easydate();
     });
+
+    if (!document.referrer.indexOf(window.location.host) > 0) {
+        jQuery('#back-btn').hide();
+    }
 });

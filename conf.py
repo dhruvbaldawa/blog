@@ -227,7 +227,7 @@ FEED_LENGTH = 20
 # "rsync -rav output/* joe@my.site:/srv/www/site"
 # And then do a backup, or ping pingomatic.
 # To do manual deployment, set it to []
-DEPLOY_COMMANDS = []
+DEPLOY_COMMANDS = ['nikola clean && nikola build', 'rsync -ravc --progress --partial output/ dhruv@dhruvb:/var/www/blog']
 
 # Where the output site should be located
 # If you don't use an absolute path, it will be considered as relative
@@ -663,9 +663,7 @@ LOGGING_HANDLERS = {
 # Put in global_context things you want available on all your templates.
 # It can be anything, data, functions, modules, etc.
 
-GLOBAL_CONTEXT = {
-    'EFF_PATH': '/',
-}
+GLOBAL_CONTEXT = {}
 
 # Deployment settings
 USE_BUNDLES = True
