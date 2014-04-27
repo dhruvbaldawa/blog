@@ -6,6 +6,8 @@ $(document).ready(function() {
     });
 
     if (!document.referrer.indexOf(window.location.host) > 0) {
-        jQuery('#back-btn').hide();
+        // some issue with jQuery not selecting all the instances, or
+        // maybe I am missing something, this seems to work anyways.
+        jQuery(document.querySelectorAll('#back-button')).hide();
     }
 });
