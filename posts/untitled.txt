@@ -1,0 +1,29 @@
+.. title: untitled
+.. slug: untitled
+.. date: 2015/08/01 20:27:27
+.. tags: music, ideas, concepts, draft
+.. link:
+.. description:
+.. type: rest
+
+`Hashtags <https://en.wikipedia.org/wiki/Hashtag>`_ have taken over the
+online world by storm. What if we could take the power of hashtags and
+use them to create real-time, dynamic, mood-based music playlists or media suggestions on-the-go? Hence, I propose we **"#hashtag #all #the #things"**. <insert hashtag all the things meme here>
+
+Playlists are fun, I have tons of them and maintaining all of them has started to be a pain in the back. During commute I like to enjoy recent bollywood songs, while at work I prefer listening to rock or ghazals. I use quite a few streaming services and they are obviously not interoperable and the only option is to create playlists in all of the them and for all the kind of moods and times.
+
+What if I could hashtag all my music? Play me #bollywood #2015 #soft or #commute or #code <insert visual cues>
+
+At this age hashtags are both intuitive and a common way of grouping similar types of content, if only we extend it to music as well. Tagging music as well as creating playlists out of hashtags shouldn't be a major cognitive overload for the current generation atleast, however not everyone uses hashtags in the same way, which is a different problem in itself :P.
+
+I do agree that hashtags are just sugarcoated tags eventually, the UX and familiarity of hashtags should make the adoption easier.
+
+The problem with current system being more often than not it doesn't work well with music having multiple artists or it becomes pretty difficult at times to add find similar music.
+
+Wouldn't it just be better if I could hashtag all my music and let the player figure out the rest - play from the music library, get recommendations. It would just be like Spotify radio but more specific music preference mentioned.
+
+It could also be a fuzzy search #Pitbull~ with the **~** meaning "artists like Pitbull".
+
+This information could be crowdsourced and suggested for any music, with the user having the ability to add custom tags. It just simplifies playlist generation or music playback to a large extent for someone who mostly has the "Shuffle" mode on while listening to the music.
+
+I realize it is very similar to `Smart Playlists <https://support.apple.com/kb/PH12141>`_ in iTunes but using it in iTunes is a pain in the back and not truly cross-platform.
