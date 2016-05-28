@@ -1,0 +1,112 @@
+.. title: Better commute planning with commute.py
+.. slug: better-commute-planning-with-commutepy
+.. date: 2016/05/28 22:28:13
+.. tags: googlemaps, python, commute.py, technical stuff
+.. link:
+.. description:
+.. type: rest
+
+My office recently moved to one of the busiest commercial areas in the suburbs,
+which is good since a lot of people travel there from different parts of the
+city. The public transport system is good, has a nice frequency and is cheap.
+But as always with too many commuters come bad traffic conditions and discomfort.
+For someone like me who wants to minimize the time and cost spent during the
+commute, while at the same time maximize the comfort this became an interesting
+problem to solve.
+
+.. TEASER_END
+
+The Problem
+-----------
+
+As it turns out, some routes and modes were better than the others given:
+
+- time of day (buses are usually less crowded in evenings and trains in mornings)
+- day of week (trains are more crowded than usual on monday mornings and friday evenings)
+- bank holidays (less traffic, buses are better than trains)
+
+There are probably more variables and constraints, and the biggest pain point for
+me was to go through `Google Maps`_ every time and plan after looking
+at the traffic situations, quantify those green, yellow, red and dark red lines
+and make decisions accordingly, this was too tedious for saving few minutes
+off the commute. Thus, the idea of commute.py_ was born.
+
+The Idea
+--------
+
+.. post-image:: /images/commute/graph.png
+
+There is already a huge amount of data collected by
+`Google Maps`_ and made available to developers via
+their `APIs <https://developers.google.com/maps/documentation/>`_.
+My initial idea was to take my existing routes, use Google Maps to find the
+travel times and let it tell me the best way to reach work. At first it did work
+great but it felt like something was amiss.
+
+Later, I realized it would be a better approach if I could just provide the
+intermediate waypoints, the different ways of travelling between those waypoints
+and let the algorithm figure out which is the best route, this seemed better and
+clicked really well with what I expected of the system.
+There could also be a possibility that the system discovered a
+better route which I didn't think of.
+
+The Execution
+-------------
+
+I provide the commute.py_ a `Directed Acyclic Graph`_ consisting of the intermediate
+waypoints and the different modes of transports which can be used to commute
+between them. The algorithm takes a source and a destination and computes all
+the routes, their times and returns the output in ascending order of total
+commute time, using the data provided by the API.
+Using the predictive capabilities that `Google Maps`_ provides
+it would make it really easy to see what could be my commute times at some point
+in the future, or just use the real-time search.
+
+User Interface
+--------------
+
+The alpha implementation of commute.py_ comes with a command line interface. It
+is not great but gets the job done.
+
+.. code :: shell
+
+    $ commute -c config.yml -s HOME -d WORK
+    Total time: 26min.
+    Home (time: 26m. w/traffic drive)
+    Work
+    -----
+    Total time: 43min.
+    Home (time: 41m. waiting: 02min. bus)
+    Work
+    -----
+    Total time: 45min.
+    Home (time: 25m. w/traffic drive)
+    Kwik-e-Mart (time: 20m. w/traffic drive)
+    Work
+    -----
+
+It is not a very user-friendly user interface as of now and definitely not
+something that is always available. I personally use it with a Facebook
+Messenger bot which makes it very easy without much hassle.
+
+.. post-image:: /images/commute/screenshot00.png
+
+.. post-image:: /images/commute/screenshot01.png
+
+Links
+-----
+
+The source and more information about how to use commute.py is available on
+Github and PyPI.
+
+- Github: https://github.com/dhruvbaldawa/commute.py
+- PyPI: https://pypi.python.org/pypi/commute
+
+I'd love your feedback and thoughts and if it helped you in
+trying to ease your commute problem.
+
+Feel free to send a pull request if you feel you can contribute in anyway.
+
+.. _commute.py: https://github.com/dhruvbaldawa/commute.py
+.. _Directed Acyclic Graph: https://en.wikipedia.org/wiki/Directed_acyclic_graph
+.. _Google Maps: https://maps.google.com/

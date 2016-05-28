@@ -37,7 +37,7 @@ class PostImageBlock(Directive):
     required_arguments = 1
     has_content = False
     IMG_DEFAULT_ATTRIBUTES = {
-        'width': '250px',
+        'max-width': '250px',
         'class': 'align-center'
     }
 
