@@ -221,7 +221,7 @@ FEED_LENGTH = 20
 # relative URL.
 #
 # If you don't need any of these, just set to []
-# REDIRECTIONS = []
+REDIRECTIONS = []
 
 # Commands to execute to deploy. Can be anything, for example,
 # you may use rsync:
@@ -624,6 +624,7 @@ ENABLED_EXTRAS = [
     'local_search',
     #     'render_mustache',
     "custom_extras",
+    'subindexes'
 ]
 
 # List of regular expressions, links matching them will always be considered
