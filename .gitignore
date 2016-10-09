@@ -4,3 +4,8 @@ output/
 themes/custom/less/bootstrap
 themes/custom/assets/external
 .doit.db
+files
+posts
+presentations
+stories
+weeklies

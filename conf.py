@@ -123,6 +123,7 @@ NAVIGATION_LINKS = {
 POSTS = (
     ("posts/*.txt", "posts", "post.tmpl"),
     ("posts/*.rst", "posts", "post.tmpl"),
+    ("weeklies/*.rst", "weeklies", "post.tmpl"),
 )
 
 PAGES = (
