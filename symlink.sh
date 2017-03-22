@@ -1,7 +1,7 @@
 #!/bin/sh
 
 export DROPBOX_FOLDER="$HOME/Dropbox"
-export folders=( files posts presentations stories weeklies )
+export folders=( files posts presentations stories digest conf )
 
 for what in "${folders[@]}"
 do
