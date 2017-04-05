@@ -8,6 +8,7 @@ body {
     font-family: "Ubuntu", "Roboto", "Helvetica Neue", Arial, sans-serif;
     position: relative;
     margin: 0;
+    cursor: auto;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -17,12 +18,12 @@ h1, h2, h3, h4, h5, h6 {
     text-align: left;
 }
 
-h1, h2, h3 {
-    letter-spacing: -2px;
+h1, h2 {
+    letter-spacing: -1px;
 }
 
-h4, h5, h6 {
-    letter-spacing: -1px;
+h3, h4, h5, h6 {
+    letter-spacing: 0px;
 }
 
 #ie-box {
@@ -190,7 +191,7 @@ div.sidebar, div.admonition, div.attention, div.caution, div.danger, div.error, 
 }
 
 blockquote p, blockquote {
-  font-size: 17.5px;
+  font-size: 15.5px;
   font-weight: 300;
   line-height: 1.25;
 }
